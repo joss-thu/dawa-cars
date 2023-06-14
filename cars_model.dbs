@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="cars_model" version="42" database="Sqlite" >
+	<schema name="Default" schemaname="Default" >
+		<table name="color" >
+			<column name="color_id" type="INTEGER" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="exterior_color" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="interior_color" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_color" unique="PRIMARY_KEY" >
+				<column name="color_id" />
+			</index>
+		</table>
+		<table name="drivetrain" >
+			<column name="drivetrain_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="drivetrain" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_drivetrain" unique="PRIMARY_KEY" >
+				<column name="drivetrain_id" />
+			</index>
+		</table>
+		<table name="engine_specs" >
+			<column name="engine_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="cylinder_placement" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="cubic_capacity_L" type="REAL" length="2000000000" decimal="10" jt="8" />
+			<column name="injection_type" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="turbo" type="INTEGER" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_engine_specs" unique="PRIMARY_KEY" >
+				<column name="engine_id" />
+			</index>
+		</table>
+		<table name="fuel_type" >
+			<column name="fuel_type_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="fuel_type" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_fuel_type" unique="PRIMARY_KEY" >
+				<column name="fuel_type_id" />
+			</index>
+		</table>
+		<table name="mileage" >
+			<column name="mileage_group_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="mileage" type="INT" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_mileage" unique="PRIMARY_KEY" >
+				<column name="mileage_group_id" />
+			</index>
+		</table>
+		<table name="mpg" storage="" >
+			<column name="mpg_grp_id" type="TINYINT" length="2000000000" decimal="10" jt="-6" mandatory="y" />
+			<column name="mp_range" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_mpg" unique="PRIMARY_KEY" >
+				<column name="mpg_grp_id" />
+			</index>
+		</table>
+		<table name="prod_year" storage="" >
+			<column name="prod_year_grp_id" type="TINYINT" length="2000000000" decimal="10" jt="-6" mandatory="y" />
+			<column name="prod_year_range" type="TEXT" length="255" jt="-1" />
+			<index name="pk_prod_year" unique="PRIMARY_KEY" >
+				<column name="prod_year_grp_id" />
+			</index>
+		</table>
+		<table name="rating" >
+			<column name="rating_id" type="TINYINT" length="2000000000" decimal="10" jt="-6" mandatory="y" />
+			<column name="seller_rating" type="DOUBLE" length="2000000000" decimal="10" jt="8" />
+			<column name="driver_rating" type="DOUBLE" length="2000000000" decimal="10" jt="8" />
+			<column name="driver_reviews_num" type="INTEGER" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_rating" unique="PRIMARY_KEY" >
+				<column name="rating_id" />
+			</index>
+		</table>
+		<table name="salesdata" storage="" >
+			<column name="seller_id" type="INTEGER" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="seller_name " type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="rating" type="TINYINT" length="2000000000" decimal="10" jt="-6" />
+			<column name="price" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="price_drop" type="INT" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_salesdata" unique="PRIMARY_KEY" >
+				<column name="seller_id" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="rating" />
+			</index>
+			<fk name="fk_salesdata_rating" to_schema="Default" to_table="rating" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="rating" pk="rating_id" />
+			</fk>
+		</table>
+		<table name="sqlite_sequence" >
+			<column name="name" type="" length="2000000000" decimal="10" jt="12" />
+			<column name="seq" type="" length="2000000000" decimal="10" jt="12" />
+		</table>
+		<table name="technical_details" storage="" >
+			<column name="tech_config_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="engine_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="transmission_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="drivetrain_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="fuel_type_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="mpg_group_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_technical_details" unique="PRIMARY_KEY" >
+				<column name="tech_config_id" />
+			</index>
+			<index name="idx_technical_details" unique="NORMAL" >
+				<column name="engine_id" />
+			</index>
+			<index name="idx_technical_details" unique="NORMAL" >
+				<column name="transmission_id" />
+			</index>
+			<index name="idx_technical_details" unique="NORMAL" >
+				<column name="drivetrain_id" />
+			</index>
+			<index name="idx_technical_details" unique="NORMAL" >
+				<column name="fuel_type_id" />
+			</index>
+			<index name="idx_technical_details" unique="NORMAL" >
+				<column name="mpg_group_id" />
+			</index>
+			<fk name="fk_technical_details" to_schema="Default" to_table="engine_specs" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="engine_id" pk="engine_id" />
+			</fk>
+			<fk name="fk_technical_details_transmission" to_schema="Default" to_table="transmission" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="transmission_id" pk="transmission_id" />
+			</fk>
+			<fk name="fk_technical_details_drivetrain" to_schema="Default" to_table="drivetrain" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="drivetrain_id" pk="drivetrain_id" />
+			</fk>
+			<fk name="fk_technical_details_fuel_type" to_schema="Default" to_table="fuel_type" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="fuel_type_id" pk="fuel_type_id" />
+			</fk>
+			<fk name="fk_technical_details_mileage" to_schema="Default" to_table="mileage" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="mpg_group_id" pk="mileage_group_id" />
+			</fk>
+		</table>
+		<table name="transmission" >
+			<column name="transmission_id" type="INT" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="speed_ratios" type="INTEGER" length="2000000000" decimal="10" jt="4" />
+			<column name="transmision_mode" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="remarks" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_transmission" unique="PRIMARY_KEY" >
+				<column name="transmission_id" />
+			</index>
+		</table>
+		<table name="usage_statistics" >
+			<column name="usage_stats_id" type="INTEGER" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="accidents_or_damage" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="one_owner" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<column name="personal_use_only" type="TEXT" length="2000000000" decimal="10" jt="-1" />
+			<index name="pk_usage_statistics" unique="PRIMARY_KEY" >
+				<column name="usage_stats_id" />
+			</index>
+		</table>
+		<table name="vehicle_details" storage="" >
+			<column name="vehicle_id" type="INTEGER" length="2000000000" decimal="10" jt="4" mandatory="y" />
+			<column name="manufacturer" type="VARCHAR" length="255" jt="12" />
+			<column name="model" type="VARCHAR" length="255" jt="12" />
+			<column name="prod_year_grp_id" type="TINYINT" length="2000000000" decimal="10" jt="-6" />
+			<column name="mpg_grp_id" type="TINYINT" length="2000000000" decimal="10" jt="-6" />
+			<column name="tech_config_id" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="color_id" type="INTEGER" length="2000000000" jt="4" />
+			<column name="usage_stats_id" type="INTEGER" length="2000000000" jt="4" />
+			<column name="sales_data" type="INTEGER" length="2000000000" decimal="10" jt="4" />
+			<index name="pk_vehicle_details" unique="PRIMARY_KEY" >
+				<column name="vehicle_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="prod_year_grp_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="mpg_grp_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="tech_config_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="color_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="usage_stats_id" />
+			</index>
+			<index name="idx_vehicle_details" unique="NORMAL" >
+				<column name="sales_data" />
+			</index>
+			<fk name="fk_vehicle_details_prod_year" to_schema="Default" to_table="prod_year" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="prod_year_grp_id" pk="prod_year_grp_id" />
+			</fk>
+			<fk name="fk_vehicle_details_mpg" to_schema="Default" to_table="mpg" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="mpg_grp_id" pk="mpg_grp_id" />
+			</fk>
+			<fk name="fk_vehicle_details" to_schema="Default" to_table="technical_details" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="tech_config_id" pk="tech_config_id" />
+			</fk>
+			<fk name="fk_vehicle_details_color" to_schema="Default" to_table="color" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="color_id" pk="color_id" />
+			</fk>
+			<fk name="fk_vehicle_details_usage_stats" to_schema="Default" to_table="usage_statistics" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="usage_stats_id" pk="usage_stats_id" />
+			</fk>
+			<fk name="fk_vehicle_details_salesdata" to_schema="Default" to_table="salesdata" delete_action="CASCADE" update_action="CASCADE" >
+				<fk_column name="sales_data" pk="seller_id" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="cars" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.6.20.1.jar" host="localhost" port="3306" instance="S:/OneDrive/THU/00.Semester4/DAWA/Project/Workspace/cars.db" user="root" />
+	<layout name="Default" tab_index="0" joined_routing="y" >
+		<entity schema="Default" name="color" x="637" y="195" />
+		<entity schema="Default" name="drivetrain" x="988" y="299" />
+		<entity schema="Default" name="engine_specs" x="988" y="52" />
+		<entity schema="Default" name="fuel_type" x="988" y="377" />
+		<entity schema="Default" name="mileage" x="988" y="455" />
+		<entity schema="Default" name="mpg" x="156" y="130" />
+		<entity schema="Default" name="prod_year" x="143" y="39" />
+		<entity schema="Default" name="rating" x="364" y="338" />
+		<entity schema="Default" name="salesdata" x="78" y="325" />
+		<entity schema="Default" name="sqlite_sequence" x="455" y="468" />
+		<entity schema="Default" name="technical_details" x="637" y="52" />
+		<entity schema="Default" name="transmission" x="975" y="195" />
+		<entity schema="Default" name="usage_statistics" x="39" y="208" />
+		<entity schema="Default" name="vehicle_details" x="351" y="78" />
+		<group name="cars" color="ffffcc" >
+			<entity schema="Default" name="prod_year" />
+			<entity schema="Default" name="mpg" />
+			<entity schema="Default" name="usage_statistics" />
+			<entity schema="Default" name="rating" />
+			<entity schema="Default" name="sqlite_sequence" />
+			<entity schema="Default" name="technical_details" />
+			<entity schema="Default" name="transmission" />
+			<entity schema="Default" name="drivetrain" />
+			<entity schema="Default" name="engine_specs" />
+			<entity schema="Default" name="mileage" />
+			<entity schema="Default" name="fuel_type" />
+			<entity schema="Default" name="color" />
+			<entity schema="Default" name="salesdata" />
+			<entity schema="Default" name="vehicle_details" />
+		</group>
+	</layout>
+</project>

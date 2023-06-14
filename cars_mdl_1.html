@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html>
+<head>
+<title>Database documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF8"/>
+<style type='text/css'>
+	 #dbs {font-family:Tahoma,Dialog,Sans-Serif;font-size:11px;background:#fff;width:80%;border-collapse:collapse;text-align:left;margin:20px;}
+	 #dbs thead{background:#e6ecf9;}
+	 #dbs th{font-size:12px;font-weight:bold;color:#039;border-bottom:2px solid #6678b1;padding:7px 8px;}
+	 #dbs td{border-bottom:1px solid #ccc;color:#336;padding:3px 8px;white-space: pre;}
+	 td.subpart{font-weight:bold;background:#e6ecf9}
+	 td.name{background:#f2f5fb}
+	 #dbs tbody tr:hover td{color:#000;background:#fffcea;}
+</style>
+</head>
+
+<body>
+<object data='cars_mdl_1.svg' width='1274' height='692' type='image/svg+xml' >
+<embed src='cars_mdl_1.svg' width='1274' height='692' type='image/svg+xml' />
+<p>To view this image the <a href="http://www.adobe.com/svg/viewer/install/main.html">SVG Viewer von Adobe</a> is required !</p></object>
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='color'>Table color</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='color_id'>color_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='exterior_color'>exterior_color</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='INTEGERerior_color'>INTEGERerior_color</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_color primary key</td>
+<td> ( color_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='drivetrain'>Table drivetrain</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='drivetrain_id'>drivetrain_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='drivetrain'>drivetrain</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_drivetrain primary key</td>
+<td> ( drivetrain_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='engine_specs'>Table engine_specs</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='engine_id'>engine_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='cylinder_placement'>cylinder_placement</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='cubic_capacity_L'>cubic_capacity_L</a></td>
+<td> REAL( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='injection_type'>injection_type</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='turbo'>turbo</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_engine_specs primary key</td>
+<td> ( engine_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='fuel_type'>Table fuel_type</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='fuel_type_id'>fuel_type_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='fuel_type'>fuel_type</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_fuel_type primary key</td>
+<td> ( fuel_type_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='mileage'>Table mileage</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='mileage_group_id'>mileage_group_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='mileage'>mileage</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_mileage primary key</td>
+<td> ( mileage_group_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='mpg'>Table mpg</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='mpg_grp_id'>mpg_grp_id</a></td>
+<td> TINYINT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='mp_range'>mp_range</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_mpg primary key</td>
+<td> ( mpg_grp_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='prod_year'>Table prod_year</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='prod_year_grp_id'>prod_year_grp_id</a></td>
+<td> TINYINT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='prod_year_range'>prod_year_range</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_prod_year primary key</td>
+<td> ( prod_year_grp_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='rating'>Table rating</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='rating_id'>rating_id</a></td>
+<td> TINYINT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='seller_rating'>seller_rating</a></td>
+<td> DOUBLE( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='driver_rating'>driver_rating</a></td>
+<td> DOUBLE( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='driver_reviews_num'>driver_reviews_num</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_rating primary key</td>
+<td> ( rating_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='salesdata'>Table salesdata</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='seller_id'>seller_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='`seller_name `'>seller_name </a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='rating'>rating</a></td>
+<td> TINYINT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='price'>price</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='price_drop'>price_drop</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_salesdata primary key</td>
+<td> ( seller_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_salesdata </td>
+<td> ( rating) </td><td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Foreign Keys</b></td></tr>
+<tr>
+<td class='name'>fk_salesdata_rating</td><td > (  rating  ) ref <a href='#rating'>rating</a> ( rating_id ) </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='sqlite_sequence'>Table sqlite_sequence</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='name'>name</a></td>
+<td> ( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='seq'>seq</a></td>
+<td> ( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='technical_details'>Table technical_details</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='tech_config_id'>tech_config_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='engine_id'>engine_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='transmission_id'>transmission_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='drivetrain_id'>drivetrain_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='fuel_type_id'>fuel_type_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='mpg_group_id'>mpg_group_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_technical_details primary key</td>
+<td> ( tech_config_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_technical_details </td>
+<td> ( engine_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_technical_details </td>
+<td> ( transmission_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_technical_details </td>
+<td> ( drivetrain_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_technical_details </td>
+<td> ( fuel_type_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_technical_details </td>
+<td> ( mpg_group_id) </td><td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Foreign Keys</b></td></tr>
+<tr>
+<td class='name'>fk_technical_details</td><td > (  engine_id  ) ref <a href='#engine_specs'>engine_specs</a> ( engine_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_technical_details_transmission</td><td > (  transmission_id  ) ref <a href='#transmission'>transmission</a> ( transmission_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_technical_details_drivetrain</td><td > (  drivetrain_id  ) ref <a href='#drivetrain'>drivetrain</a> ( drivetrain_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_technical_details_fuel_type</td><td > (  fuel_type_id  ) ref <a href='#fuel_type'>fuel_type</a> ( fuel_type_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_technical_details_mileage</td><td > (  mpg_group_id  ) ref <a href='#mileage'>mileage</a> ( mileage_group_id ) </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='transmission'>Table transmission</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='transmission_id'>transmission_id</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='speed_ratios'>speed_ratios</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='transmision_mode'>transmision_mode</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='remarks'>remarks</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_transmission primary key</td>
+<td> ( transmission_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='usage_statistics'>Table usage_statistics</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='usage_stats_id'>usage_stats_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='accidents_or_damage'>accidents_or_damage</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='one_owner'>one_owner</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='personal_use_only'>personal_use_only</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_usage_statistics primary key</td>
+<td> ( usage_stats_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='vehicle_details'>Table vehicle_details</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='vehicle_id'>vehicle_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='manufacturer'>manufacturer</a></td>
+<td> VARCHAR( 255 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='model'>model</a></td>
+<td> VARCHAR( 255 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='prod_year_grp_id'>prod_year_grp_id</a></td>
+<td> TINYINT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='mpg_grp_id'>mpg_grp_id</a></td>
+<td> TINYINT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='tech_config_id'>tech_config_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='color_id'>color_id</a></td>
+<td> INTEGER( 2000000000 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='usage_stats_id'>usage_stats_id</a></td>
+<td> INTEGER( 2000000000 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='sales_data'>sales_data</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_vehicle_details primary key</td>
+<td> ( vehicle_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( prod_year_grp_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( mpg_grp_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( tech_config_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( color_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( usage_stats_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( sales_data) </td><td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Foreign Keys</b></td></tr>
+<tr>
+<td class='name'>fk_vehicle_details_prod_year</td><td > (  prod_year_grp_id  ) ref <a href='#prod_year'>prod_year</a> ( prod_year_grp_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_mpg</td><td > (  mpg_grp_id  ) ref <a href='#mpg'>mpg</a> ( mpg_grp_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details</td><td > (  tech_config_id  ) ref <a href='#technical_details'>technical_details</a> ( tech_config_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_color</td><td > (  color_id  ) ref <a href='#color'>color</a> ( color_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_usage_stats</td><td > (  usage_stats_id  ) ref <a href='#usage_statistics'>usage_statistics</a> ( usage_stats_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_salesdata</td><td > (  sales_data  ) ref <a href='#salesdata'>salesdata</a> ( seller_id ) </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+</body></html>

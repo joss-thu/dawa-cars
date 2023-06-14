@@ -1,0 +1,25 @@
+About Dataset
+This dataset contains data about 762,091 used cars scraped from cars.com. The data was collected on Apr, 2023.
+
+Feature description:
+
+manufacturer - name of the car manufacturer
+model - name of the car model
+year - the year when the car was produced
+mileage - the number of miles the car has traveled since production
+engine - car engine
+transmission - type of the car's transmission
+drivetrain - type of the car's drivetrain
+fuel_type - type of fuel that the car consumes
+mpg - the number of miles a car can travel using one gallon of fuel (miles per gallon)
+exterior_color - car exterior color
+interior_color - car interior color
+accidents_or_damage - whether the car was involved in accidents
+one_owner - whether the car was owned by one person
+personal_use_only - whether the car was used only for personal purposes
+seller_name - name of the seller
+seller_rating - seller's rating
+driver_rating - car rating given by drivers
+driver_reviews_num - the number of car reviews left by drivers
+price_drop - price reduction from the initial price
+price - car price
