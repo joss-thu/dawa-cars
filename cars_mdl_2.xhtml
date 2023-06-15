@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='ISO-8859-1' standalone='yes'?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN' 'http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' >
+<head>
+<title>Database documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF8"/>
+<style type='text/css'>
+	 #dbs {font-family:Tahoma,Dialog,Sans-Serif;font-size:11px;background:#fff;width:80%;border-collapse:collapse;text-align:left;margin:20px;}
+	 #dbs thead{background:#e6ecf9;}
+	 #dbs th{font-size:12px;font-weight:bold;color:#039;border-bottom:2px solid #6678b1;padding:7px 8px;}
+	 #dbs td{border-bottom:1px solid #ccc;color:#336;padding:3px 8px;white-space: pre;}
+	 td.subpart{font-weight:bold;background:#e6ecf9}
+	 td.name{background:#f2f5fb}
+	 #dbs tbody tr:hover td{color:#000;background:#fffcea;}
+</style>
+</head>
+
+<body>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='shape-rendering:crispEdges;shape-rendering:crispEdges;'   width='871' height='536' viewbox='0 0 871 536' >
+<style type='text/css'>
+  text                { text-rendering: optimizeLegibility; fill:#444444; font-family: Tahoma,Trebuchet MS,Dialog,Arial; font-size:11px; }
+  text.coltype        { fill:#a9bdc6; font-size:10px; }
+  path                { stroke:#776c57; stroke-width:1; fill: none; }
+  rect.grp            { opacity:0.5; stroke:#70706f; stroke-width:1; }
+  rect.table          { fill:white; stroke:none; }
+  rect.tableborder    { fill:none; filter:url(#dropShadow); stroke:#939ea4; stroke-width:1; }
+  rect.callout        { fill:#ffffff; stroke:none; }
+  rect.calloutborder  { fill:none; filter:url(#dropShadow); stroke:#8d9380; stroke-width:1; }
+</style>
+<defs>
+  <linearGradient id='grTableHeader' x1='0' x2='0' y1='0' y2='1'>
+    <stop offset='0%' stop-color='#a8caff' />
+    <stop offset='50%' stop-color='#3c62d4' />
+    <stop offset='51%' stop-color='#4969c9' />
+    <stop offset='100%' stop-color='#738ec4' />
+  </linearGradient>
+
+  <pattern id='imageBackground' patternUnits='userSpaceOnUse' x='0' y='0' width='42' height='42' viewBox='0 0 42 42'>
+    <rect x='0' y='0' width='42' height='42' style='fill:#f6f5ed;' />
+    <line x1='0' y1='15' x2='42' y2='15' style='stroke:#d7d7d7;stroke-width:1;stroke-dasharray:6,3,6,3,6,3,12;'  />
+    <line x1='15' y1='0' x2='15' y2='42' style='stroke:#d7d7d7;stroke-width:1;stroke-dasharray:6,3,6,3,6,3,12;'  />
+  </pattern>
+
+  <filter id='dropShadow' filterUnits='objectBoundingBox' x='-1.2' y='-1.2' width='6' height='6'>
+    <feGaussianBlur in='SourceAlpha' stdDeviation='2' />
+    <feComponentTransfer result='shadow'>
+      <feFuncA type='linear' slope='.7' intercept='0' />
+      </feComponentTransfer>
+    <feComposite in2='shadow' in='SourceGraphic'/>
+  </filter>
+  <radialGradient id='legendGradient' fx='5%' fy='5%' r='75%' spreadMethod='pad'>
+          <stop offset='0%' stop-color='#6985ff' stop-opacity='1'/> 
+          <stop offset='100%' stop-color='#1e2a5f' stop-opacity='1' /> 
+   </radialGradient>
+
+  <pattern id='hintPointerSV' patternUnits='userSpaceOnUse' x='0' y='0' width='13' height='13' viewBox='0 0 13 13' >
+      <path d='M 0,0 Q 7,7,0,13 Q 13,7,13,0' style='fill:#ffffff;stroke:#8d9380;' />
+  </pattern>
+
+  <pattern id='hintPointerSE' patternUnits='userSpaceOnUse' x='0' y='0' width='13' height='13' viewBox='0 0 13 13' >
+      <path d='M 0,0 Q 3,7,13,13 Q 7,7,13,0' style='fill:#ffffff;stroke:#8d9380;' />
+  </pattern>
+
+  <pattern id='hintPointerNV' patternUnits='userSpaceOnUse' x='0' y='0' width='13' height='13' viewBox='0 0 13 13' >
+      <path d='M 0,13 Q 7,7,0,0 Q 13,7,13,13' style='fill:#ffffff;stroke:#8d9380;' />
+  </pattern>
+
+  <pattern id='hintPointerNE' patternUnits='userSpaceOnUse' x='0' y='0' width='13' height='13' viewBox='0 0 13 13' >
+      <path d='M 0,13 Q 3,7,13,0 Q 7,7,13,13' style='fill:#ffffff;stroke:#8d9380;' />
+  </pattern>
+
+  <symbol id='pk' overflow='visible' >
+      <path d='M 5 6 A 3 3 0 1 1 7 6 L 8 7 L 7 8 L 8 9 L 7,10 L 6 11 L 5,10 L 5,6 z' style='fill:#f2e421;stroke-width:0.7;stroke:#5f3312;stroke-linejoin:round;shape-rendering:geometricPrecision;' />
+  </symbol>
+
+  <symbol id='idx' overflow='visible' >
+      <path d='M 4,3 L 9,6 L 4,9 z' style='fill:#f2e421;stroke-width:0.7;stroke:#5f3312;stroke-linejoin:round;shape-rendering:geometricPrecision' />
+  </symbol>
+
+  <marker id='arrow' viewBox='0 0 6 6' refX='0' refY='3' markerUnits='strokeWidth' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0,0 L 6, 3 L 0,6 z' style='fill:#666666; stroke-width:0px;' />
+  </marker>
+
+  <marker id='foot' viewBox='0 0 6 6' refX='6' refY='3' markerUnits='strokeWidth' markerWidth='6' markerHeight='6' orient='auto'>
+    <path d='M 0,3 L 13, 3 z' />
+  </marker>
+
+</defs>
+
+<script type='text/javascript'>
+  <![CDATA[
+    function hgText(evt){evt.target.setAttribute('style','text-decoration:underline;fill:blue;'); }
+    function uhgText(evt){evt.target.setAttribute('style','text-decoration:none;fill:black;'); }
+    function hgPath(evt){evt.target.setAttribute('style','stroke:blue;stroke-width:2;');}
+    function uhgPath(evt){evt.target.setAttribute('style','stroke:#776c57;stroke-width:1;');}
+  ]]>
+</script>
+
+<!-- ############### Desktop ############# -->
+<rect x='1' y='1' width='869' height='534' rx='6' ry='6' style='fill:url(#imageBackground); stroke:#939ea4; stroke-width:1;' />
+
+<!-- ############### Group 'cars' ############# -->
+<rect  class='grp' style='fill:#ffffcc;' x='27' y='19' width='804' height='378' rx='7' ry='7'/>
+<text x='40' y='32'>cars</text>
+
+<!-- ############### Table 'car_age' ############# -->
+<rect class='table' x='130' y='33' width='117' height='65' rx='6' ry='6' />
+<path d='M 131 53 L 131 40 Q 131 34 137 34 L 240 34 Q 246 34 246 40 L 246 53 L131 53 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#car_age' title='car_age' ><text x='143' y='48' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>car_age</text></a>
+  <use id='idx' x='130' y='61' xlink:href='#idx'/><a xlink:href='#age_id' title='age_id int'><text x='143' y='71' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>age_id</text><text x='210' y='71' class='coltype'>INT</text></a>
+  <a xlink:href='#age_category' title='age_category text'><text x='143' y='84' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>age_category</text><text x='210' y='84' class='coltype'>TEXT</text></a>
+
+
+<rect class='tableborder' x='130' y='33' width='117' height='65' rx='6' ry='6' />
+<!-- ############### Table 'color' ############# -->
+<rect class='table' x='598' y='176' width='221' height='78' rx='6' ry='6' />
+<path d='M 599 196 L 599 183 Q 599 177 605 177 L 812 177 Q 818 177 818 183 L 818 196 L599 196 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#color' title='color' ><text x='611' y='191' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>color</text></a>
+  <use id='pk' x='598' y='204' xlink:href='#pk'/><a xlink:href='#color_id' title='color_id integer(2000000000,10)'><text x='611' y='214' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>color_id</text><text x='678' y='214' class='coltype'>INTEGER(2000000000,10)</text></a>
+  <a xlink:href='#exterior_color' title='exterior_color text'><text x='611' y='227' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>exterior_color</text><text x='678' y='227' class='coltype'>TEXT</text></a>
+  <a xlink:href='#interior_color' title='interior_color text'><text x='611' y='240' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>interior_color</text><text x='678' y='240' class='coltype'>TEXT</text></a>
+
+
+<rect class='tableborder' x='598' y='176' width='221' height='78' rx='6' ry='6' />
+<!-- ############### Table 'eco_rating' ############# -->
+<rect class='table' x='624' y='98' width='117' height='65' rx='6' ry='6' />
+<path d='M 625 118 L 625 105 Q 625 99 631 99 L 734 99 Q 740 99 740 105 L 740 118 L625 118 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#eco_rating' title='eco_rating' ><text x='637' y='113' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>eco_rating</text></a>
+  <use id='idx' x='624' y='126' xlink:href='#idx'/><a xlink:href='#eco_rating_id' title='eco_rating_id int'><text x='637' y='136' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>eco_rating_id</text><text x='702' y='136' class='coltype'>INT</text></a>
+  <a xlink:href='#eco_class' title='eco_class text'><text x='637' y='149' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>eco_class</text><text x='702' y='149' class='coltype'>TEXT</text></a>
+
+
+<rect class='tableborder' x='624' y='98' width='117' height='65' rx='6' ry='6' />
+<!-- ############### Table 'rating_aggr' ############# -->
+<rect class='table' x='299' y='202' width='208' height='65' rx='6' ry='6' />
+<path d='M 300 222 L 300 209 Q 300 203 306 203 L 500 203 Q 506 203 506 209 L 506 222 L300 222 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#rating_aggr' title='rating_aggr' ><text x='312' y='217' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>rating_aggr</text></a>
+  <use id='idx' x='299' y='230' xlink:href='#idx'/><a xlink:href='#rating_aggr_id' title='rating_aggr_id tinyint'><text x='312' y='240' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>rating_aggr_id</text><text x='381' y='240' class='coltype'>TINYINT</text></a>
+  <a xlink:href='#rating_overall' title='rating_overall real(2000000000,10)'><text x='312' y='253' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>rating_overall</text><text x='381' y='253' class='coltype'>REAL(2000000000,10)</text></a>
+
+
+<rect class='tableborder' x='299' y='202' width='208' height='65' rx='6' ry='6' />
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_salesdata_rating_aggr' d='M 260 169 L 266,169 Q 273,169 273,175 L 273,227 Q 273,234 279,234 L 286,234'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<!-- ############### Table 'salesdata' ############# -->
+<rect class='table' x='39' y='111' width='221' height='104' rx='6' ry='6' />
+<path d='M 40 131 L 40 118 Q 40 112 46 112 L 253 112 Q 259 112 259 118 L 259 131 L40 131 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#salesdata' title='salesdata' ><text x='52' y='126' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>salesdata</text></a>
+  <use id='pk' x='39' y='139' xlink:href='#pk'/><a xlink:href='#seller_id' title='seller_id integer(2000000000,10)'><text x='52' y='149' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>seller_id</text><text x='113' y='149' class='coltype'>INTEGER(2000000000,10)</text></a>
+  <a xlink:href='#`seller_name `' title='seller_name  text'><text x='52' y='162' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>seller_name </text><text x='113' y='162' class='coltype'>TEXT</text></a>
+  <use id='idx' x='39' y='165' xlink:href='#idx'/><a xlink:href='#rating' title='rating tinyint'><text x='52' y='175' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>rating</text><text x='113' y='175' class='coltype'>TINYINT</text></a>
+  <a xlink:href='#price' title='price int'><text x='52' y='188' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>price</text><text x='113' y='188' class='coltype'>INT</text></a>
+  <a xlink:href='#price_drop' title='price_drop int'><text x='52' y='201' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>price_drop</text><text x='113' y='201' class='coltype'>INT</text></a>
+
+
+<rect class='tableborder' x='39' y='111' width='221' height='104' rx='6' ry='6' />
+<!-- ############### Table 'sqlite_sequence' ############# -->
+<rect class='table' x='52' y='306' width='130' height='65' rx='6' ry='6' />
+<path d='M 53 326 L 53 313 Q 53 307 59 307 L 175 307 Q 181 307 181 313 L 181 326 L53 326 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#sqlite_sequence' title='sqlite_sequence' ><text x='65' y='321' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>sqlite_sequence</text></a>
+  <a xlink:href='#name' title='name (2000000000,10)'><text x='65' y='344' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>name</text><text x='91' y='344' class='coltype'>(2000000000,10)</text></a>
+  <a xlink:href='#seq' title='seq (2000000000,10)'><text x='65' y='357' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>seq</text><text x='91' y='357' class='coltype'>(2000000000,10)</text></a>
+
+
+<rect class='tableborder' x='52' y='306' width='130' height='65' rx='6' ry='6' />
+<!-- ############### Table 'usage_score' ############# -->
+<rect class='table' x='598' y='267' width='234' height='65' rx='6' ry='6' />
+<path d='M 599 287 L 599 274 Q 599 268 605 268 L 825 268 Q 831 268 831 274 L 831 287 L599 287 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#usage_score' title='usage_score' ><text x='611' y='282' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>usage_score</text></a>
+  <use id='idx' x='598' y='295' xlink:href='#idx'/><a xlink:href='#usage_score_id' title='usage_score_id int'><text x='611' y='305' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>usage_score_id</text><text x='689' y='305' class='coltype'>INT</text></a>
+  <a xlink:href='#usage_score' title='usage_score integer(2000000000,10)'><text x='611' y='318' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>usage_score</text><text x='689' y='318' class='coltype'>INTEGER(2000000000,10)</text></a>
+
+
+<rect class='tableborder' x='598' y='267' width='234' height='65' rx='6' ry='6' />
+<!-- ############### Table 'vehicle_category' ############# -->
+<rect class='table' x='585' y='33' width='221' height='65' rx='6' ry='6' />
+<path d='M 586 53 L 586 40 Q 586 34 592 34 L 799 34 Q 805 34 805 40 L 805 53 L586 53 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#vehicle_category' title='vehicle_category' ><text x='598' y='48' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>vehicle_category</text></a>
+  <use id='idx' x='585' y='61' xlink:href='#idx'/><a xlink:href='#vehicle_id' title='vehicle_id integer(2000000000)'><text x='598' y='71' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>vehicle_id</text><text x='681' y='71' class='coltype'>INTEGER(2000000000)</text></a>
+  <a xlink:href='#vehicle_category' title='vehicle_category text'><text x='598' y='84' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>vehicle_category</text><text x='681' y='84' class='coltype'>TEXT</text></a>
+
+
+<rect class='tableborder' x='585' y='33' width='221' height='65' rx='6' ry='6' />
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details_color' d='M 520 130 L 565,130 Q 572,130 572,136 L 572,201 Q 572,208 578,208 L 585,208'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details_salesdata' d='M 286 156 L 279,156 Q 273,156 273,149 L 273,149 Q 273,143 266,143 L 260,143'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details' d='M 520 65 L 572,65'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details_eco_rating' d='M 520 117 L 591,117 Q 598,117 598,123 L 598,123 Q 598,130 604,130 L 611,130'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details_usage_score' d='M 520 143 L 552,143 Q 559,143 559,149 L 559,292 Q 559,299 565,299 L 585,299'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<path transform='translate(6,0)' marker-start='url(#foot)' marker-end='url(#arrow)'  title='fk_vehicle_details_car_age' d='M 286 104 L 279,104 Q 273,104 273,97 L 273,71 Q 273,65 266,65 L 247,65'  onmouseover='hgPath(evt);' onmouseout='uhgPath(evt);'  />
+
+<!-- ############### Table 'vehicle_details' ############# -->
+<rect class='table' x='299' y='33' width='221' height='143' rx='6' ry='6' />
+<path d='M 300 53 L 300 40 Q 300 34 306 34 L 513 34 Q 519 34 519 40 L 519 53 L300 53 ' style='fill:url(#grTableHeader); stroke:none;' />
+<a xlink:href='#vehicle_details' title='vehicle_details' ><text x='312' y='48' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>vehicle_details</text></a>
+  <use id='pk' x='299' y='61' xlink:href='#pk'/><a xlink:href='#vehicle_id' title='vehicle_id integer(2000000000,10)'><text x='312' y='71' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>vehicle_id</text><text x='377' y='71' class='coltype'>INTEGER(2000000000,10)</text></a>
+  <a xlink:href='#manufacturer' title='manufacturer varchar(255)'><text x='312' y='84' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>manufacturer</text><text x='377' y='84' class='coltype'>VARCHAR(255)</text></a>
+  <a xlink:href='#model' title='model varchar(255)'><text x='312' y='97' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>model</text><text x='377' y='97' class='coltype'>VARCHAR(255)</text></a>
+  <use id='idx' x='299' y='100' xlink:href='#idx'/><a xlink:href='#car_age' title='car_age tinyint'><text x='312' y='110' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>car_age</text><text x='377' y='110' class='coltype'>TINYINT</text></a>
+  <use id='idx' x='299' y='113' xlink:href='#idx'/><a xlink:href='#eco_rating' title='eco_rating int'><text x='312' y='123' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>eco_rating</text><text x='377' y='123' class='coltype'>INT</text></a>
+  <use id='idx' x='299' y='126' xlink:href='#idx'/><a xlink:href='#color_id' title='color_id integer(2000000000)'><text x='312' y='136' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>color_id</text><text x='377' y='136' class='coltype'>INTEGER(2000000000)</text></a>
+  <use id='idx' x='299' y='139' xlink:href='#idx'/><a xlink:href='#usage_score' title='usage_score int'><text x='312' y='149' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>usage_score</text><text x='377' y='149' class='coltype'>INT</text></a>
+  <use id='idx' x='299' y='152' xlink:href='#idx'/><a xlink:href='#sales_data' title='sales_data integer(2000000000,10)'><text x='312' y='162' onmouseover='hgText(evt);' onmouseout='uhgText(evt);'>sales_data</text><text x='377' y='162' class='coltype'>INTEGER(2000000000,10)</text></a>
+
+
+<rect class='tableborder' x='299' y='33' width='221' height='143' rx='6' ry='6' />
+<g transform='translate(591,416)'>  <rect x='10' y='10' width='240' height='45' rx='6' ry='6' style='fill:url(#legendGradient);' />
+  <text x='25' y='22' style='fill:white;' >Layout Default</text>
+  <text x='25' y='36' style='fill:white;' >Project cars_model_2</text>
+  <a xlink:href='http://www.dbschema.com'>
+    <text x='25' y='50' style='fill:white;' >15 Jun 2023 by DbSchema</text>
+  </a>
+</g>
+
+</svg>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='car_age'>Table car_age</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='age_id'>age_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='age_category'>age_category</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_car_age unique</td>
+<td> ( age_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='color'>Table color</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='color_id'>color_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='exterior_color'>exterior_color</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='interior_color'>interior_color</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_color primary key</td>
+<td> ( color_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='eco_rating'>Table eco_rating</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='eco_rating_id'>eco_rating_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='eco_class'>eco_class</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_eco_rating unique</td>
+<td> ( eco_rating_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='rating_aggr'>Table rating_aggr</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='rating_aggr_id'>rating_aggr_id</a></td>
+<td> TINYINT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='rating_overall'>rating_overall</a></td>
+<td> REAL( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_rating_aggr unique</td>
+<td> ( rating_aggr_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='salesdata'>Table salesdata</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='seller_id'>seller_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='`seller_name `'>seller_name </a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='rating'>rating</a></td>
+<td> TINYINT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='price'>price</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='price_drop'>price_drop</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_salesdata primary key</td>
+<td> ( seller_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_salesdata </td>
+<td> ( rating) </td><td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Foreign Keys</b></td></tr>
+<tr>
+<td class='name'>fk_salesdata_rating_aggr</td><td > (  rating  ) ref <a href='#rating_aggr'>rating_aggr</a> ( rating_aggr_id ) </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='sqlite_sequence'>Table sqlite_sequence</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='name'>name</a></td>
+<td> ( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='seq'>seq</a></td>
+<td> ( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='usage_score'>Table usage_score</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='usage_score_id'>usage_score_id</a></td>
+<td> INT     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='usage_score'>usage_score</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_usage_score unique</td>
+<td> ( usage_score_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='vehicle_category'>Table vehicle_category</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='vehicle_id'>vehicle_id</a></td>
+<td> INTEGER( 2000000000 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='vehicle_category'>vehicle_category</a></td>
+<td> TEXT     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_vehicle_category unique</td>
+<td> ( vehicle_id) </td><td>  </td>
+</tr>
+</tbody>
+</table>
+
+<br/><br/>
+<table id='dbs' >
+<thead>
+<tr><th colspan='3'><a name='vehicle_details'>Table vehicle_details</a> <br/> </th></tr>
+</thead>
+<tbody>
+<tr><td class='name'><a name='vehicle_id'>vehicle_id</a></td>
+<td> INTEGER( 2000000000, 10 )    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='manufacturer'>manufacturer</a></td>
+<td> VARCHAR( 255 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='model'>model</a></td>
+<td> VARCHAR( 255 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='car_age'>car_age</a></td>
+<td> TINYINT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='eco_rating'>eco_rating</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='color_id'>color_id</a></td>
+<td> INTEGER( 2000000000 )     </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='usage_score'>usage_score</a></td>
+<td> INT    NOT NULL   </td>
+<td>  </td>
+</tr>
+<tr><td class='name'><a name='sales_data'>sales_data</a></td>
+<td> INTEGER( 2000000000, 10 )     </td>
+<td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Indexes</b></td></tr>
+<tr><td class='name'>pk_vehicle_details primary key</td>
+<td> ( vehicle_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( color_id) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( sales_data) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( eco_rating) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( usage_score) </td><td>  </td>
+</tr>
+<tr><td class='name'>idx_vehicle_details </td>
+<td> ( car_age) </td><td>  </td>
+</tr>
+<tr><td colspan='3' class='subpart'><b>Foreign Keys</b></td></tr>
+<tr>
+<td class='name'>fk_vehicle_details_color</td><td > (  color_id  ) ref <a href='#color'>color</a> ( color_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_salesdata</td><td > (  sales_data  ) ref <a href='#salesdata'>salesdata</a> ( seller_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details</td><td > (  vehicle_id  ) ref <a href='#vehicle_category'>vehicle_category</a> ( vehicle_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_eco_rating</td><td > (  eco_rating  ) ref <a href='#eco_rating'>eco_rating</a> ( eco_rating_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_usage_score</td><td > (  usage_score  ) ref <a href='#usage_score'>usage_score</a> ( usage_score_id ) </td>
+<td>  </td>
+</tr>
+<tr>
+<td class='name'>fk_vehicle_details_car_age</td><td > (  car_age  ) ref <a href='#car_age'>car_age</a> ( age_id ) </td>
+<td>  </td>
+</tr>
+</tbody>
+</table>
+
+</body></html>
