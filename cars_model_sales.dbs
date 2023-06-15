@@ -205,7 +205,7 @@
 			</fk>
 		</table>
 		<table name="vehicle_category" storage="" >
-			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="vehicle_id" type="INT" jt="4" mandatory="y" />
 			<column name="vehicle_category" type="TEXT" length="2000000000" decimal="10" jt="-1" />
 			<index name="PK_vehicle_category" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
@@ -214,7 +214,7 @@
 				<column name="vehicle_category" />
 			</index>
 			<fk name="fk_vehicle_category" to_schema="Default" to_table="vehicle_category_classification" >
-				<fk_column name="vehicle_id" pk="vehicle_category" />
+				<fk_column name="vehicle_category" pk="vehicle_category" />
 			</fk>
 		</table>
 		<table name="vehicle_category_classification" storage="" >
