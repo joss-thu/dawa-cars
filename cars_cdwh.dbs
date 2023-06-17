@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="cars_cdwh" version="42" database="Sqlite" >
+	<schema name="Default" schemaname="Default" >
+		<table name="driver_rating" >
+			<column name="id_driver_rating" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="driver_rating" type="TINYINT" jt="-6" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_driver_rating" />
+			</index>
+		</table>
+		<table name="fuel_type" >
+			<column name="id_fuelType" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="fuel_category" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_fuelType" />
+			</index>
+		</table>
+		<table name="transmission" >
+			<column name="id_transmission" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="transmission_automatic" type="BOOL" jt="-7" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_transmission" />
+			</index>
+		</table>
+		<table name="prod_year" >
+			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="prod_year" type="INT" jt="4" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_prod_year" />
+			</index>
+		</table>
+		<table name="mileage" >
+			<column name="id_mileage" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="mileage_category" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_mileage" />
+			</index>
+		</table>
+		<table name="paint_finish" >
+			<column name="id_paint_finish" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="paint_finish" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_paint_finish" />
+			</index>
+		</table>
+		<table name="personal_use_only" storage="" >
+			<column name="id_personal_use_only" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="personal_use_only" type="BOOL" jt="-7" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_personal_use_only" />
+			</index>
+		</table>
+		<table name="one_owner" storage="" >
+			<column name="id_one_owner" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="one_owner_only" type="BOOL" jt="-7" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_one_owner" />
+			</index>
+		</table>
+		<table name="accidents_or_damage" storage="" >
+			<column name="id_accidents_damage" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="accidents_or_damage" type="BOOL" jt="-7" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_accidents_damage" />
+			</index>
+		</table>
+		<table name="vehicle_mpg_efficiency_class" storage="" >
+			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="mpg_efficiency_class" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_efficiency" />
+			</index>
+		</table>
+		<table name="vehicle_manufacturer" storage="" >
+			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
+			<column name="manufacturer" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table" unique="PRIMARY_KEY" >
+				<column name="id_manufacturer" />
+			</index>
+		</table>
+		<table name="color" storage="" >
+			<column name="id_exterior_color" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="exterior_color" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="pk_id_exterior_color" unique="PRIMARY_KEY" >
+				<column name="id_exterior_color" />
+			</index>
+		</table>
+		<table name="salesdata" storage="" >
+			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="price" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="amount_sold" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_model" type="INT" jt="4" mandatory="y" />
+			<column name="id_accidents" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_one_owner" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_personal_use" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_color" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_paintfinish" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_fuel_type" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_mileage" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_trans_auto" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="id_driver_rating" type="TINYINT" jt="-6" mandatory="y" />
+			<index name="pk_salesdata" unique="PRIMARY_KEY" >
+				<column name="vehicle_id" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_model" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_accidents" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_one_owner" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_personal_use" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_color" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_paintfinish" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_fuel_type" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_mileage" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_prod_year" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_trans_auto" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="id_driver_rating" />
+			</index>
+			<fk name="fk_salesdata_vehicle_details" to_schema="Default" to_table="vehicle_model" >
+				<fk_column name="id_model" pk="id_model" />
+			</fk>
+			<fk name="fk_salesdata_accidents" to_schema="Default" to_table="accidents_or_damage" >
+				<fk_column name="id_accidents" pk="id_accidents_damage" />
+			</fk>
+			<fk name="fk_salesdata_one_owner" to_schema="Default" to_table="one_owner" >
+				<fk_column name="id_one_owner" pk="id_one_owner" />
+			</fk>
+			<fk name="fk_salesdata_personal_use_only" to_schema="Default" to_table="personal_use_only" >
+				<fk_column name="id_personal_use" pk="id_personal_use_only" />
+			</fk>
+			<fk name="fk_salesdata_color" to_schema="Default" to_table="color" >
+				<fk_column name="id_color" pk="id_exterior_color" />
+			</fk>
+			<fk name="fk_salesdata_paint_finish" to_schema="Default" to_table="paint_finish" >
+				<fk_column name="id_paintfinish" pk="id_paint_finish" />
+			</fk>
+			<fk name="fk_salesdata_mileage" to_schema="Default" to_table="mileage" >
+				<fk_column name="id_mileage" pk="id_mileage" />
+			</fk>
+			<fk name="fk_salesdata_prod_year" to_schema="Default" to_table="prod_year" >
+				<fk_column name="id_prod_year" pk="id_prod_year" />
+			</fk>
+			<fk name="fk_salesdata_transmission" to_schema="Default" to_table="transmission" >
+				<fk_column name="id_trans_auto" pk="id_transmission" />
+			</fk>
+			<fk name="fk_salesdata_fuel_type" to_schema="Default" to_table="fuel_type" >
+				<fk_column name="id_fuel_type" pk="id_fuelType" />
+			</fk>
+			<fk name="fk_salesdata_driver_rating" to_schema="Default" to_table="driver_rating" >
+				<fk_column name="id_driver_rating" pk="id_driver_rating" />
+			</fk>
+		</table>
+		<table name="sqlite_sequence" >
+			<column name="name" type="" length="2000000000" decimal="10" jt="12" />
+			<column name="seq" type="" length="2000000000" decimal="10" jt="12" />
+		</table>
+		<table name="vehicle_model" storage="" >
+			<column name="id_model" type="INT" jt="4" mandatory="y" />
+			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
+			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="model" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<index name="pk" unique="PRIMARY_KEY" >
+				<column name="id_model" />
+			</index>
+			<index name="idx_vehicle_model" unique="NORMAL" >
+				<column name="id_manufacturer" />
+			</index>
+			<index name="idx_vehicle_model" unique="NORMAL" >
+				<column name="id_efficiency" />
+			</index>
+			<fk name="fk_vehicle_model_manufacturer" to_schema="Default" to_table="vehicle_manufacturer" >
+				<fk_column name="id_manufacturer" pk="id_manufacturer" />
+			</fk>
+			<fk name="fk_vehicle_model_efficiency" to_schema="Default" to_table="vehicle_mpg_efficiency_class" >
+				<fk_column name="id_efficiency" pk="id_efficiency" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="cars" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.6.20.1.jar" host="localhost" port="3306" instance="S:/OneDrive/THU/00.Semester4/DAWA/Project/CarsDataset/cars.db" user="root" />
+	<layout name="Default" tab_index="0" joined_routing="y" >
+		<entity schema="Default" name="accidents_or_damage" x="715" y="247" />
+		<entity schema="Default" name="driver_rating" x="286" y="650" />
+		<entity schema="Default" name="fuel_type" x="299" y="182" />
+		<entity schema="Default" name="mileage" x="260" y="299" />
+		<entity schema="Default" name="one_owner" x="936" y="247" />
+		<entity schema="Default" name="paint_finish" x="949" y="442" />
+		<entity schema="Default" name="personal_use_only" x="1131" y="247" />
+		<entity schema="Default" name="prod_year" x="286" y="416" />
+		<entity schema="Default" name="transmission" x="247" y="533" />
+		<entity schema="Default" name="vehicle_mpg_efficiency_class" x="923" y="130" />
+		<entity schema="Default" name="vehicle_manufacturer" x="923" y="52" />
+		<entity schema="Default" name="color" x="728" y="442" />
+		<entity schema="Default" name="salesdata" x="507" y="299" />
+		<entity schema="Default" name="sqlite_sequence" x="39" y="65" />
+		<entity schema="Default" name="vehicle_model" x="702" y="39" />
+		<group name="0" color="ffffcc" >
+			<entity schema="Default" name="sqlite_sequence" />
+		</group>
+		<group name="Fact-Sales" color="c4e0f9" >
+			<entity schema="Default" name="salesdata" />
+		</group>
+		<group name="dimen_accidents" color="c4e0f9" >
+			<entity schema="Default" name="accidents_or_damage" />
+		</group>
+		<group name="dimen_color" color="c4e0f9" >
+			<entity schema="Default" name="color" />
+		</group>
+		<group name="dimen_fuel_type" color="c4e0f9" >
+			<entity schema="Default" name="fuel_type" />
+		</group>
+		<group name="dimen_mileage" color="c4e0f9" >
+			<entity schema="Default" name="mileage" />
+		</group>
+		<group name="dimen_paint_finish" color="c4e0f9" >
+			<entity schema="Default" name="paint_finish" />
+		</group>
+		<group name="dimen_personal_use_only" color="c4e0f9" >
+			<entity schema="Default" name="personal_use_only" />
+		</group>
+		<group name="dimen_prod_year" color="c4e0f9" >
+			<entity schema="Default" name="prod_year" />
+		</group>
+		<group name="dimen_single_owner" color="c4e0f9" >
+			<entity schema="Default" name="one_owner" />
+		</group>
+		<group name="dimen_transmission" color="c4e0f9" >
+			<entity schema="Default" name="transmission" />
+		</group>
+		<group name="dimen_vehicle" color="c4e0f9" >
+			<entity schema="Default" name="vehicle_manufacturer" />
+			<entity schema="Default" name="vehicle_model" />
+			<entity schema="Default" name="vehicle_mpg_efficiency_class" />
+		</group>
+		<group name="driver_rating" color="c4e0f9" >
+			<entity schema="Default" name="driver_rating" />
+		</group>
+	</layout>
+</project>

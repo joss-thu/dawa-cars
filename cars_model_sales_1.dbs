@@ -7,6 +7,9 @@
 			<index name="PK_aa" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
 			</index>
+			<index name="Pk_appearance" unique="UNIQUE" >
+				<column name="apperance_code" />
+			</index>
 			<fk name="fk_appearance_color" to_schema="Default" to_table="color" >
 				<fk_column name="apperance_code" pk="appearance_code" />
 			</fk>
@@ -17,18 +20,11 @@
 			<index name="pk_" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
 			</index>
+			<index name="Pk_car_depreciation" unique="UNIQUE" >
+				<column name="depreciation_score" />
+			</index>
 			<fk name="fk_car_depreciation" to_schema="Default" to_table="car_depreciation_calc" >
 				<fk_column name="depreciation_score" pk="depreciation_score" />
-			</fk>
-		</table>
-		<table name="driver_rating" storage="" >
-			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
-			<column name="rating_driver_normalised" type="DOUBLE" jt="8" mandatory="y" />
-			<index name="PK_aa_1" unique="PRIMARY_KEY" >
-				<column name="vehicle_id" />
-			</index>
-			<fk name="fk_driver_rating" to_schema="Default" to_table="driver_rating_raw" >
-				<fk_column name="rating_driver_normalised" pk="driver_rating_normalised" />
 			</fk>
 		</table>
 		<table name="car_depreciation_calc" storage="" >
@@ -45,6 +41,9 @@
 			<column name="usage_score" type="TINYINT" length="2000000000" decimal="10" jt="-6" />
 			<index name="PK_car_usage_1" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
+			</index>
+			<index name="Pk_car_usage_score" unique="UNIQUE" >
+				<column name="usage_score" />
 			</index>
 			<fk name="fk_car_usage_score" to_schema="Default" to_table="car_usage_score_calc" >
 				<fk_column name="usage_score" pk="usage_score" />
@@ -73,11 +72,36 @@
 				<column name="appearance_code" />
 			</index>
 		</table>
+		<table name="ratings" storage="" >
+			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="rating_driver_normalised" type="DOUBLE" jt="8" mandatory="y" />
+			<index name="PK_aa_1" unique="PRIMARY_KEY" >
+				<column name="vehicle_id" />
+			</index>
+			<index name="Pk_driver_rating" unique="UNIQUE" >
+				<column name="rating_driver_normalised" />
+			</index>
+			<fk name="fk_driver_rating" to_schema="Default" to_table="driver_rating_raw" >
+				<fk_column name="rating_driver_normalised" pk="driver_rating_normalised" />
+			</fk>
+		</table>
+		<table name="driver_rating_raw" storage="" >
+			<column name="driver_rating" type="DOUBLE" jt="8" mandatory="y" />
+			<column name="driver_reviews_num" type="DOUBLE" jt="8" mandatory="y" />
+			<column name="driver_rating_normalised" type="DOUBLE" jt="8" mandatory="y" />
+			<index name="Idx_driv_rating" unique="PRIMARY_KEY" >
+				<column name="driver_rating" />
+				<column name="driver_reviews_num" />
+			</index>
+		</table>
 		<table name="eco_rating" storage="" >
 			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
 			<column name="eco_score" type="TINYINT" jt="-6" mandatory="y" />
 			<index name="PK_eco_rating" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
+			</index>
+			<index name="Pk_eco_rating_1" unique="UNIQUE" >
+				<column name="eco_score" />
 			</index>
 			<fk name="fk_eco_rating_eco_score_calc" to_schema="Default" to_table="eco_score_calc" >
 				<fk_column name="eco_score" pk="eco_score" />
@@ -103,25 +127,32 @@
 				<column name="cubic_capacity_L" />
 			</index>
 		</table>
-		<table name="driver_rating_raw" storage="" >
-			<column name="driver_rating" type="DOUBLE" jt="8" mandatory="y" />
-			<column name="driver_reviews_num" type="DOUBLE" jt="8" mandatory="y" />
-			<column name="driver_rating_normalised" type="DOUBLE" jt="8" mandatory="y" />
-			<index name="Idx_driv_rating" unique="PRIMARY_KEY" >
-				<column name="driver_rating" />
-				<column name="driver_reviews_num" />
-			</index>
-		</table>
 		<table name="salesdata" storage="" >
-			<column name="seller_id" type="INTEGER" jt="4" mandatory="y" />
 			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
+			<column name="seller_id" type="INTEGER" jt="4" mandatory="y" />
 			<column name="price" type="INT" length="2000000000" decimal="10" jt="4" />
 			<column name="price_drop" type="INT" length="2000000000" decimal="10" jt="4" />
+			<column name="appearance_code" type="INTEGER" jt="4" mandatory="y" />
+			<column name="depreciation_score" type="TEXT" jt="-1" mandatory="y" />
+			<column name="rating_driver_normalised" type="DOUBLE" jt="8" mandatory="y" />
+			<column name="usage_score" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="eco_score" type="TINYINT" jt="-6" mandatory="y" />
 			<index name="idx_salesdata" unique="NORMAL" >
-				<column name="vehicle_id" />
+				<column name="appearance_code" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="depreciation_score" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="rating_driver_normalised" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="usage_score" />
+			</index>
+			<index name="idx_salesdata" unique="NORMAL" >
+				<column name="eco_score" />
 			</index>
 			<index name="pk_salesdata" unique="PRIMARY_KEY" >
-				<column name="seller_id" />
 				<column name="vehicle_id" />
 			</index>
 			<fk name="fk_salesdata_seller_data" to_schema="Default" to_table="seller_data" >
@@ -130,20 +161,20 @@
 			<fk name="fk_salesdata_vehicle_details" to_schema="Default" to_table="vehicle_details" >
 				<fk_column name="vehicle_id" pk="vehicle_id" />
 			</fk>
-			<fk name="fk_salesdata_eco_rating" to_schema="Default" to_table="eco_rating" >
-				<fk_column name="vehicle_id" pk="vehicle_id" />
-			</fk>
-			<fk name="fk_salesdata_car_usage_score" to_schema="Default" to_table="car_usage_score" >
-				<fk_column name="vehicle_id" pk="vehicle_id" />
-			</fk>
-			<fk name="fk_salesdata_driver_rating" to_schema="Default" to_table="driver_rating" >
-				<fk_column name="vehicle_id" pk="vehicle_id" />
+			<fk name="fk_salesdata_appearance" to_schema="Default" to_table="appearance" >
+				<fk_column name="appearance_code" pk="apperance_code" />
 			</fk>
 			<fk name="fk_salesdata_car_depreciation" to_schema="Default" to_table="car_depreciation" >
-				<fk_column name="vehicle_id" pk="vehicle_id" />
+				<fk_column name="depreciation_score" pk="depreciation_score" />
 			</fk>
-			<fk name="fk_salesdata_appearance" to_schema="Default" to_table="appearance" >
-				<fk_column name="vehicle_id" pk="vehicle_id" />
+			<fk name="fk_salesdata_driver_rating" to_schema="Default" to_table="ratings" >
+				<fk_column name="rating_driver_normalised" pk="rating_driver_normalised" />
+			</fk>
+			<fk name="fk_salesdata_car_usage_score" to_schema="Default" to_table="car_usage_score" >
+				<fk_column name="usage_score" pk="usage_score" />
+			</fk>
+			<fk name="fk_salesdata_eco_rating" to_schema="Default" to_table="eco_rating" >
+				<fk_column name="eco_score" pk="eco_score" />
 			</fk>
 		</table>
 		<table name="seller_data" storage="" >
@@ -187,6 +218,7 @@
 			<column name="manufacturer" type="TEXT" jt="-1" mandatory="y" />
 			<column name="model" type="TEXT" jt="-1" mandatory="y" />
 			<column name="vehicle_category" type="TEXT" jt="-1" mandatory="y" />
+			<column name="drivetrain" type="TEXT" jt="-1" mandatory="y" />
 			<index name="pk" unique="PRIMARY_KEY" >
 				<column name="vehicle_id" />
 			</index>
@@ -197,23 +229,23 @@
 	</schema>
 	<connector name="cars" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.6.20.1.jar" host="localhost" port="3306" instance="S:/OneDrive/THU/00.Semester4/DAWA/Project/CarsDataset/cars.db" user="root" />
 	<layout name="Default" tab_index="0" joined_routing="y" >
-		<entity schema="Default" name="appearance" x="403" y="182" />
-		<entity schema="Default" name="car_depreciation" x="260" y="338" />
-		<entity schema="Default" name="driver_rating" x="286" y="494" />
-		<entity schema="Default" name="car_depreciation_calc" x="39" y="325" />
-		<entity schema="Default" name="car_usage_score" x="325" y="585" />
-		<entity schema="Default" name="car_usage_score_calc" x="52" y="572" />
-		<entity schema="Default" name="color" x="182" y="195" />
-		<entity schema="Default" name="eco_rating" x="312" y="689" />
-		<entity schema="Default" name="eco_score_calc" x="104" y="689" />
-		<entity schema="Default" name="engine_specs" x="1274" y="455" />
-		<entity schema="Default" name="driver_rating_raw" x="39" y="468" />
-		<entity schema="Default" name="salesdata" x="650" y="338" />
-		<entity schema="Default" name="seller_data" x="819" y="221" />
-		<entity schema="Default" name="sqlite_sequence" x="377" y="39" />
-		<entity schema="Default" name="transmission" x="1274" y="572" />
-		<entity schema="Default" name="vehicle_category_classification" x="1027" y="468" />
-		<entity schema="Default" name="vehicle_details" x="832" y="416" />
+		<entity schema="Default" name="appearance" x="299" y="169" />
+		<entity schema="Default" name="car_depreciation" x="286" y="325" />
+		<entity schema="Default" name="car_depreciation_calc" x="65" y="312" />
+		<entity schema="Default" name="car_usage_score" x="780" y="481" />
+		<entity schema="Default" name="car_usage_score_calc" x="975" y="481" />
+		<entity schema="Default" name="color" x="78" y="182" />
+		<entity schema="Default" name="ratings" x="260" y="455" />
+		<entity schema="Default" name="driver_rating_raw" x="39" y="442" />
+		<entity schema="Default" name="eco_rating" x="325" y="572" />
+		<entity schema="Default" name="eco_score_calc" x="130" y="585" />
+		<entity schema="Default" name="engine_specs" x="1209" y="65" />
+		<entity schema="Default" name="salesdata" x="546" y="273" />
+		<entity schema="Default" name="seller_data" x="793" y="351" />
+		<entity schema="Default" name="sqlite_sequence" x="78" y="39" />
+		<entity schema="Default" name="transmission" x="1222" y="182" />
+		<entity schema="Default" name="vehicle_category_classification" x="988" y="117" />
+		<entity schema="Default" name="vehicle_details" x="793" y="65" />
 		<group name="0" color="ffffcc" >
 			<entity schema="Default" name="sqlite_sequence" />
 		</group>
@@ -225,24 +257,28 @@
 			<entity schema="Default" name="appearance" />
 		</group>
 		<group name="dimen_depreciation" color="c4e0f9" >
-			<entity schema="Default" name="car_depreciation" />
 			<entity schema="Default" name="car_depreciation_calc" />
+			<entity schema="Default" name="car_depreciation" />
+		</group>
+		<group name="dimen_eco_rating" color="c4e0f9" >
+			<entity schema="Default" name="eco_score_calc" />
+			<entity schema="Default" name="eco_rating" />
 		</group>
 		<group name="dimen_ratings" color="c4e0f9" >
 			<entity schema="Default" name="driver_rating_raw" />
-			<entity schema="Default" name="car_usage_score_calc" />
-			<entity schema="Default" name="car_usage_score" />
-			<entity schema="Default" name="eco_score_calc" />
-			<entity schema="Default" name="eco_rating" />
-			<entity schema="Default" name="driver_rating" />
+			<entity schema="Default" name="ratings" />
 		</group>
 		<group name="dimen_seller" color="c4e0f9" >
 			<entity schema="Default" name="seller_data" />
 		</group>
+		<group name="dimen_usage_score" color="c4e0f9" >
+			<entity schema="Default" name="car_usage_score" />
+			<entity schema="Default" name="car_usage_score_calc" />
+		</group>
 		<group name="dimen_vehicle" color="c4e0f9" >
-			<entity schema="Default" name="engine_specs" />
 			<entity schema="Default" name="transmission" />
 			<entity schema="Default" name="vehicle_category_classification" />
+			<entity schema="Default" name="engine_specs" />
 			<entity schema="Default" name="vehicle_details" />
 		</group>
 	</layout>
