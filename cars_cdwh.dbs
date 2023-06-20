@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="cars_cdwh" version="42" database="Sqlite" >
 	<schema name="Default" schemaname="Default" >
+		<table name="accidents_or_damage" storage="" >
+			<column name="id_accidents_damage" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="accidents_or_damage" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_accidents_damage" />
+			</index>
+		</table>
+		<table name="color" storage="" >
+			<column name="id_exterior_color" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="exterior_color" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="pk_id_exterior_color" unique="PRIMARY_KEY" >
+				<column name="id_exterior_color" />
+			</index>
+		</table>
 		<table name="driver_rating" >
 			<column name="id_driver_rating" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="driver_rating" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="driver_rating" type="TINYTEXT" jt="-1" mandatory="y" />
 			<index name="PK_Table_1" unique="PRIMARY_KEY" >
 				<column name="id_driver_rating" />
 			</index>
@@ -15,25 +29,18 @@
 				<column name="id_fuelType" />
 			</index>
 		</table>
-		<table name="transmission" >
-			<column name="id_transmission" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="transmission_automatic" type="BOOL" jt="-7" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
-				<column name="id_transmission" />
-			</index>
-		</table>
-		<table name="prod_year" >
-			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="prod_year" type="INT" jt="4" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
-				<column name="id_prod_year" />
-			</index>
-		</table>
 		<table name="mileage" >
 			<column name="id_mileage" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="mileage_category" type="TINYTEXT" jt="-1" mandatory="y" />
 			<index name="PK_Table_1" unique="PRIMARY_KEY" >
 				<column name="id_mileage" />
+			</index>
+		</table>
+		<table name="one_owner" storage="" >
+			<column name="id_one_owner" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="one_owner_only" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_one_owner" />
 			</index>
 		</table>
 		<table name="paint_finish" >
@@ -45,44 +52,16 @@
 		</table>
 		<table name="personal_use_only" storage="" >
 			<column name="id_personal_use_only" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="personal_use_only" type="BOOL" jt="-7" mandatory="y" />
+			<column name="personal_use_only" type="TINYTEXT" jt="-1" mandatory="y" />
 			<index name="PK_Table_1" unique="PRIMARY_KEY" >
 				<column name="id_personal_use_only" />
 			</index>
 		</table>
-		<table name="one_owner" storage="" >
-			<column name="id_one_owner" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="one_owner_only" type="BOOL" jt="-7" mandatory="y" />
+		<table name="prod_year" >
+			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="prod_year" type="TINYTEXT" jt="-1" mandatory="y" />
 			<index name="PK_Table_1" unique="PRIMARY_KEY" >
-				<column name="id_one_owner" />
-			</index>
-		</table>
-		<table name="accidents_or_damage" storage="" >
-			<column name="id_accidents_damage" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="accidents_or_damage" type="BOOL" jt="-7" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
-				<column name="id_accidents_damage" />
-			</index>
-		</table>
-		<table name="vehicle_mpg_efficiency_class" storage="" >
-			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="mpg_efficiency_class" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
-				<column name="id_efficiency" />
-			</index>
-		</table>
-		<table name="vehicle_manufacturer" storage="" >
-			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
-			<column name="manufacturer" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table" unique="PRIMARY_KEY" >
-				<column name="id_manufacturer" />
-			</index>
-		</table>
-		<table name="color" storage="" >
-			<column name="id_exterior_color" type="TINYINT" jt="-6" mandatory="y" />
-			<column name="exterior_color" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="pk_id_exterior_color" unique="PRIMARY_KEY" >
-				<column name="id_exterior_color" />
+				<column name="id_prod_year" />
 			</index>
 		</table>
 		<table name="salesdata" storage="" >
@@ -174,6 +153,20 @@
 			<column name="name" type="" length="2000000000" decimal="10" jt="12" />
 			<column name="seq" type="" length="2000000000" decimal="10" jt="12" />
 		</table>
+		<table name="transmission" storage="" >
+			<column name="id_transmission" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="transmission_automatic" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_transmission" />
+			</index>
+		</table>
+		<table name="vehicle_manufacturer" storage="" >
+			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
+			<column name="manufacturer" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table" unique="PRIMARY_KEY" >
+				<column name="id_manufacturer" />
+			</index>
+		</table>
 		<table name="vehicle_model" storage="" >
 			<column name="id_model" type="INT" jt="4" mandatory="y" />
 			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
@@ -195,10 +188,18 @@
 				<fk_column name="id_efficiency" pk="id_efficiency" />
 			</fk>
 		</table>
+		<table name="vehicle_mpg_efficiency_class" storage="" >
+			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
+			<column name="mpg_efficiency_class" type="TINYTEXT" jt="-1" mandatory="y" />
+			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+				<column name="id_efficiency" />
+			</index>
+		</table>
 	</schema>
 	<connector name="cars" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.6.20.1.jar" host="localhost" port="3306" instance="S:/OneDrive/THU/00.Semester4/DAWA/Project/CarsDataset/cars.db" user="root" />
 	<layout name="Default" tab_index="0" joined_routing="y" >
 		<entity schema="Default" name="accidents_or_damage" x="715" y="247" />
+		<entity schema="Default" name="color" x="728" y="442" />
 		<entity schema="Default" name="driver_rating" x="286" y="650" />
 		<entity schema="Default" name="fuel_type" x="299" y="182" />
 		<entity schema="Default" name="mileage" x="260" y="299" />
@@ -206,13 +207,12 @@
 		<entity schema="Default" name="paint_finish" x="949" y="442" />
 		<entity schema="Default" name="personal_use_only" x="1131" y="247" />
 		<entity schema="Default" name="prod_year" x="286" y="416" />
-		<entity schema="Default" name="transmission" x="247" y="533" />
-		<entity schema="Default" name="vehicle_mpg_efficiency_class" x="923" y="130" />
-		<entity schema="Default" name="vehicle_manufacturer" x="923" y="52" />
-		<entity schema="Default" name="color" x="728" y="442" />
 		<entity schema="Default" name="salesdata" x="507" y="299" />
 		<entity schema="Default" name="sqlite_sequence" x="39" y="65" />
+		<entity schema="Default" name="transmission" x="247" y="533" />
+		<entity schema="Default" name="vehicle_manufacturer" x="923" y="52" />
 		<entity schema="Default" name="vehicle_model" x="702" y="39" />
+		<entity schema="Default" name="vehicle_mpg_efficiency_class" x="923" y="130" />
 		<group name="0" color="ffffcc" >
 			<entity schema="Default" name="sqlite_sequence" />
 		</group>
