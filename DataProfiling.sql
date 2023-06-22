@@ -99,6 +99,19 @@ SELECT COUNT(DISTINCT (exterior_color)) FROM cars.cars;
 SELECT DISTINCT (exterior_color) FROM cars.cars
 order by exterior_color ASC limit 30000;
 
+SELECT *FROM cars.cars
+WHERE (LOWER(exterior_color) LIKE LOWER("matte %")) OR (LOWER(exterior_color) LIKE LOWER("% matte %")) OR (LOWER(exterior_color) LIKE LOWER("% matte"))
+order by exterior_color ASC limit 30000;
+
+
+SELECT *FROM cars.cars
+WHERE (LOWER(exterior_color) LIKE LOWER("pearl%")) OR (LOWER(exterior_color) LIKE LOWER("%pearl%")) OR (LOWER(exterior_color) LIKE LOWER("%pearl"))
+order by exterior_color ASC limit 700000;
+
+SELECT *FROM cars.cars
+WHERE (LOWER(exterior_color) LIKE LOWER("metal%")) OR (LOWER(exterior_color) LIKE LOWER("%metal%")) OR (LOWER(exterior_color) LIKE LOWER("%metal"))
+order by exterior_color ASC limit 700000;
+
 -- #############################################
 
 

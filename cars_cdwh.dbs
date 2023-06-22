@@ -4,7 +4,7 @@
 		<table name="accidents_or_damage" storage="" >
 			<column name="id_accidents_damage" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="accidents_or_damage" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_accidents_or_damage" unique="PRIMARY_KEY" >
 				<column name="id_accidents_damage" />
 			</index>
 		</table>
@@ -15,58 +15,58 @@
 				<column name="id_exterior_color" />
 			</index>
 		</table>
-		<table name="driver_rating" >
+		<table name="driver_rating" storage="" >
 			<column name="id_driver_rating" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="driver_rating" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_driver_rating" unique="PRIMARY_KEY" >
 				<column name="id_driver_rating" />
 			</index>
 		</table>
-		<table name="fuel_type" >
+		<table name="fuel_type" storage="" >
 			<column name="id_fuelType" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="fuel_category" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_fuel_type" unique="PRIMARY_KEY" >
 				<column name="id_fuelType" />
 			</index>
 		</table>
-		<table name="mileage" >
+		<table name="mileage" storage="" >
 			<column name="id_mileage" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="mileage_category" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_mileage" unique="PRIMARY_KEY" >
 				<column name="id_mileage" />
 			</index>
 		</table>
 		<table name="one_owner" storage="" >
 			<column name="id_one_owner" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="one_owner_only" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_one_owner" unique="PRIMARY_KEY" >
 				<column name="id_one_owner" />
 			</index>
 		</table>
-		<table name="paint_finish" >
+		<table name="paint_finish" storage="" >
 			<column name="id_paint_finish" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="paint_finish" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_paint_finish" unique="PRIMARY_KEY" >
 				<column name="id_paint_finish" />
 			</index>
 		</table>
 		<table name="personal_use_only" storage="" >
 			<column name="id_personal_use_only" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="personal_use_only" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_personal_use_only" unique="PRIMARY_KEY" >
 				<column name="id_personal_use_only" />
 			</index>
 		</table>
-		<table name="prod_year" >
+		<table name="prod_year" storage="" >
 			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="prod_year" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_prod_year" unique="PRIMARY_KEY" >
 				<column name="id_prod_year" />
 			</index>
 		</table>
-		<table name="salesdata" storage="" >
-			<column name="vehicle_id" type="INTEGER" jt="4" mandatory="y" />
-			<column name="price" type="INT" length="2000000000" decimal="10" jt="4" />
+		<table name="sales_data" storage="" >
+			<column name="id_vehicle" type="INTEGER" jt="4" mandatory="y" />
+			<column name="price" type="INT" jt="4" mandatory="y" />
 			<column name="amount_sold" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="id_model" type="INT" jt="4" mandatory="y" />
 			<column name="id_accidents" type="TINYINT" jt="-6" mandatory="y" />
@@ -79,40 +79,40 @@
 			<column name="id_prod_year" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="id_trans_auto" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="id_driver_rating" type="TINYINT" jt="-6" mandatory="y" />
-			<index name="pk_salesdata" unique="PRIMARY_KEY" >
-				<column name="vehicle_id" />
+			<index name="pk_sales_data" unique="PRIMARY_KEY" >
+				<column name="id_vehicle" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_model" unique="NORMAL" >
 				<column name="id_model" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_accident" unique="NORMAL" >
 				<column name="id_accidents" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_ownership" unique="NORMAL" >
 				<column name="id_one_owner" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_personal_usage" unique="NORMAL" >
 				<column name="id_personal_use" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_color" unique="NORMAL" >
 				<column name="id_color" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_paint_finish" unique="NORMAL" >
 				<column name="id_paintfinish" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_fuel_type" unique="NORMAL" >
 				<column name="id_fuel_type" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_mileage" unique="NORMAL" >
 				<column name="id_mileage" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_prod_year" unique="NORMAL" >
 				<column name="id_prod_year" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_transmission" unique="NORMAL" >
 				<column name="id_trans_auto" />
 			</index>
-			<index name="idx_salesdata" unique="NORMAL" >
+			<index name="idx_sales_driver_rating" unique="NORMAL" >
 				<column name="id_driver_rating" />
 			</index>
 			<fk name="fk_salesdata_vehicle_details" to_schema="Default" to_table="vehicle_model" >
@@ -156,14 +156,14 @@
 		<table name="transmission" storage="" >
 			<column name="id_transmission" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="transmission_automatic" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_transmission" unique="PRIMARY_KEY" >
 				<column name="id_transmission" />
 			</index>
 		</table>
 		<table name="vehicle_manufacturer" storage="" >
 			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
 			<column name="manufacturer" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table" unique="PRIMARY_KEY" >
+			<index name="PK_vehicle_manufacturer" unique="PRIMARY_KEY" >
 				<column name="id_manufacturer" />
 			</index>
 		</table>
@@ -172,13 +172,13 @@
 			<column name="id_manufacturer" type="INT" jt="4" mandatory="y" />
 			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="model" type="VARCHAR" length="100" jt="12" mandatory="y" />
-			<index name="pk" unique="PRIMARY_KEY" >
+			<index name="PK_vehicle_model" unique="PRIMARY_KEY" >
 				<column name="id_model" />
 			</index>
-			<index name="idx_vehicle_model" unique="NORMAL" >
+			<index name="idx_model_manufacturer" unique="NORMAL" >
 				<column name="id_manufacturer" />
 			</index>
-			<index name="idx_vehicle_model" unique="NORMAL" >
+			<index name="idx_model_efficiency" unique="NORMAL" >
 				<column name="id_efficiency" />
 			</index>
 			<fk name="fk_vehicle_model_manufacturer" to_schema="Default" to_table="vehicle_manufacturer" >
@@ -191,7 +191,7 @@
 		<table name="vehicle_mpg_efficiency_class" storage="" >
 			<column name="id_efficiency" type="TINYINT" jt="-6" mandatory="y" />
 			<column name="mpg_efficiency_class" type="TINYTEXT" jt="-1" mandatory="y" />
-			<index name="PK_Table_1" unique="PRIMARY_KEY" >
+			<index name="PK_vehicle_mpg_efficiency_class" unique="PRIMARY_KEY" >
 				<column name="id_efficiency" />
 			</index>
 		</table>
@@ -207,7 +207,7 @@
 		<entity schema="Default" name="paint_finish" x="949" y="442" />
 		<entity schema="Default" name="personal_use_only" x="1131" y="247" />
 		<entity schema="Default" name="prod_year" x="286" y="416" />
-		<entity schema="Default" name="salesdata" x="507" y="299" />
+		<entity schema="Default" name="sales_data" x="507" y="299" />
 		<entity schema="Default" name="sqlite_sequence" x="39" y="65" />
 		<entity schema="Default" name="transmission" x="247" y="533" />
 		<entity schema="Default" name="vehicle_manufacturer" x="923" y="52" />
@@ -217,7 +217,7 @@
 			<entity schema="Default" name="sqlite_sequence" />
 		</group>
 		<group name="Fact-Sales" color="c4e0f9" >
-			<entity schema="Default" name="salesdata" />
+			<entity schema="Default" name="sales_data" />
 		</group>
 		<group name="dimen_accidents" color="c4e0f9" >
 			<entity schema="Default" name="accidents_or_damage" />
@@ -248,11 +248,738 @@
 		</group>
 		<group name="dimen_vehicle" color="c4e0f9" >
 			<entity schema="Default" name="vehicle_manufacturer" />
-			<entity schema="Default" name="vehicle_model" />
 			<entity schema="Default" name="vehicle_mpg_efficiency_class" />
+			<entity schema="Default" name="vehicle_model" />
 		</group>
 		<group name="driver_rating" color="c4e0f9" >
 			<entity schema="Default" name="driver_rating" />
 		</group>
+		<query name="Sql_000" tab_index="0" >
+			<string> <![CDATA[CREATE TABLE accidents_or_damage ( 
+    id_accidents_damage TINYINT NOT NULL,
+    accidents_or_damage TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_accidents_damage )
+ ) ;
+
+CREATE TABLE color ( 
+    id_exterior_color TINYINT NOT NULL,
+    exterior_color TINYTEXT NOT NULL,
+CONSTRAINT pk_id_exterior_color PRIMARY KEY ( id_exterior_color )
+ ) ;
+
+CREATE TABLE driver_rating ( 
+    id_driver_rating TINYINT NOT NULL,
+    driver_rating TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_driver_rating )
+ ) ;
+
+CREATE TABLE fuel_type ( 
+    id_fuelType TINYINT NOT NULL,
+    fuel_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_fuelType )
+ ) ;
+
+CREATE TABLE mileage ( 
+    id_mileage TINYINT NOT NULL,
+    mileage_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_mileage )
+ ) ;
+
+CREATE TABLE one_owner ( 
+    id_one_owner TINYINT NOT NULL,
+    one_owner_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_one_owner )
+ ) ;
+
+CREATE TABLE paint_finish ( 
+    id_paint_finish TINYINT NOT NULL,
+    paint_finish TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_paint_finish )
+ ) ;
+
+CREATE TABLE personal_use_only ( 
+    id_personal_use_only TINYINT NOT NULL,
+    personal_use_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_personal_use_only )
+ ) ;
+
+CREATE TABLE prod_year ( 
+    id_prod_year TINYINT NOT NULL,
+    prod_year TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_prod_year )
+ ) ;
+
+CREATE TABLE sales_data ( 
+    id_vehicle INTEGER NOT NULL,
+    price INT NOT NULL,
+    amount_sold TINYINT NOT NULL,
+    id_model INT NOT NULL,
+    id_accidents TINYINT NOT NULL,
+    id_one_owner TINYINT NOT NULL,
+    id_personal_use TINYINT NOT NULL,
+    id_color TINYINT NOT NULL,
+    id_paintfinish TINYINT NOT NULL,
+    id_fuel_type TINYINT NOT NULL,
+    id_mileage TINYINT NOT NULL,
+    id_prod_year TINYINT NOT NULL,
+    id_trans_auto TINYINT NOT NULL,
+    id_driver_rating TINYINT NOT NULL,
+CONSTRAINT pk_salesdata PRIMARY KEY ( id_vehicle ),
+FOREIGN KEY ( id_model ) REFERENCES vehicle_model( id_model )  ,
+FOREIGN KEY ( id_accidents ) REFERENCES accidents_or_damage( id_accidents_damage )  ,
+FOREIGN KEY ( id_one_owner ) REFERENCES one_owner( id_one_owner )  ,
+FOREIGN KEY ( id_personal_use ) REFERENCES personal_use_only( id_personal_use_only )  ,
+FOREIGN KEY ( id_color ) REFERENCES color( id_exterior_color )  ,
+FOREIGN KEY ( id_paintfinish ) REFERENCES paint_finish( id_paint_finish )  ,
+FOREIGN KEY ( id_mileage ) REFERENCES mileage( id_mileage )  ,
+FOREIGN KEY ( id_prod_year ) REFERENCES prod_year( id_prod_year )  ,
+FOREIGN KEY ( id_trans_auto ) REFERENCES transmission( id_transmission )  ,
+FOREIGN KEY ( id_fuel_type ) REFERENCES fuel_type( id_fuelType )  ,
+FOREIGN KEY ( id_driver_rating ) REFERENCES driver_rating( id_driver_rating )  
+ ) ;
+
+CREATE INDEX idx_salesdata ON sales_data ( id_model );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_accidents );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_one_owner );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_personal_use );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_color );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_paintfinish );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_fuel_type );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_mileage );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_prod_year );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_trans_auto );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_driver_rating );
+
+CREATE TABLE sqlite_sequence ( 
+    name ( 2000000000, 10 ) NULL,
+    seq ( 2000000000, 10 ) NULL
+ ) ;
+
+CREATE TABLE transmission ( 
+    id_transmission TINYINT NOT NULL,
+    transmission_automatic TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_transmission )
+ ) ;
+
+CREATE TABLE vehicle_manufacturer ( 
+    id_manufacturer INT NOT NULL,
+    manufacturer TINYTEXT NOT NULL,
+CONSTRAINT PK_Table PRIMARY KEY ( id_manufacturer )
+ ) ;
+
+CREATE TABLE vehicle_model ( 
+    id_model INT NOT NULL,
+    id_manufacturer INT NOT NULL,
+    id_efficiency TINYINT NOT NULL,
+    model VARCHAR( 100 ) NOT NULL,
+CONSTRAINT pk PRIMARY KEY ( id_model ),
+FOREIGN KEY ( id_manufacturer ) REFERENCES vehicle_manufacturer( id_manufacturer )  ,
+FOREIGN KEY ( id_efficiency ) REFERENCES vehicle_mpg_efficiency_class( id_efficiency )  
+ ) ;
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_manufacturer );
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_efficiency );
+
+CREATE TABLE vehicle_mpg_efficiency_class ( 
+    id_efficiency TINYINT NOT NULL,
+    mpg_efficiency_class TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_efficiency )
+ ) ;
+
+
+]]> </string>
+		</query>
+		<query name="Sql_001" tab_index="1" >
+			<string> <![CDATA[CREATE TABLE accidents_or_damage ( 
+    id_accidents_damage TINYINT NOT NULL,
+    accidents_or_damage TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_accidents_damage )
+ ) ;
+
+CREATE TABLE color ( 
+    id_exterior_color TINYINT NOT NULL,
+    exterior_color TINYTEXT NOT NULL,
+CONSTRAINT pk_id_exterior_color PRIMARY KEY ( id_exterior_color )
+ ) ;
+
+CREATE TABLE driver_rating ( 
+    id_driver_rating TINYINT NOT NULL,
+    driver_rating TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_driver_rating )
+ ) ;
+
+CREATE TABLE fuel_type ( 
+    id_fuelType TINYINT NOT NULL,
+    fuel_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_fuelType )
+ ) ;
+
+CREATE TABLE mileage ( 
+    id_mileage TINYINT NOT NULL,
+    mileage_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_mileage )
+ ) ;
+
+CREATE TABLE one_owner ( 
+    id_one_owner TINYINT NOT NULL,
+    one_owner_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_one_owner )
+ ) ;
+
+CREATE TABLE paint_finish ( 
+    id_paint_finish TINYINT NOT NULL,
+    paint_finish TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_paint_finish )
+ ) ;
+
+CREATE TABLE personal_use_only ( 
+    id_personal_use_only TINYINT NOT NULL,
+    personal_use_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_personal_use_only )
+ ) ;
+
+CREATE TABLE prod_year ( 
+    id_prod_year TINYINT NOT NULL,
+    prod_year TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_prod_year )
+ ) ;
+
+CREATE TABLE sales_data ( 
+    id_vehicle INTEGER NOT NULL,
+    price INT NOT NULL,
+    amount_sold TINYINT NOT NULL,
+    id_model INT NOT NULL,
+    id_accidents TINYINT NOT NULL,
+    id_one_owner TINYINT NOT NULL,
+    id_personal_use TINYINT NOT NULL,
+    id_color TINYINT NOT NULL,
+    id_paintfinish TINYINT NOT NULL,
+    id_fuel_type TINYINT NOT NULL,
+    id_mileage TINYINT NOT NULL,
+    id_prod_year TINYINT NOT NULL,
+    id_trans_auto TINYINT NOT NULL,
+    id_driver_rating TINYINT NOT NULL,
+CONSTRAINT pk_salesdata PRIMARY KEY ( id_vehicle ),
+FOREIGN KEY ( id_model ) REFERENCES vehicle_model( id_model )  ,
+FOREIGN KEY ( id_accidents ) REFERENCES accidents_or_damage( id_accidents_damage )  ,
+FOREIGN KEY ( id_one_owner ) REFERENCES one_owner( id_one_owner )  ,
+FOREIGN KEY ( id_personal_use ) REFERENCES personal_use_only( id_personal_use_only )  ,
+FOREIGN KEY ( id_color ) REFERENCES color( id_exterior_color )  ,
+FOREIGN KEY ( id_paintfinish ) REFERENCES paint_finish( id_paint_finish )  ,
+FOREIGN KEY ( id_mileage ) REFERENCES mileage( id_mileage )  ,
+FOREIGN KEY ( id_prod_year ) REFERENCES prod_year( id_prod_year )  ,
+FOREIGN KEY ( id_trans_auto ) REFERENCES transmission( id_transmission )  ,
+FOREIGN KEY ( id_fuel_type ) REFERENCES fuel_type( id_fuelType )  ,
+FOREIGN KEY ( id_driver_rating ) REFERENCES driver_rating( id_driver_rating )  
+ ) ;
+
+CREATE INDEX idx_salesdata ON sales_data ( id_model );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_accidents );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_one_owner );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_personal_use );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_color );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_paintfinish );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_fuel_type );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_mileage );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_prod_year );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_trans_auto );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_driver_rating );
+
+CREATE TABLE sqlite_sequence ( 
+    name ( 2000000000, 10 ) NULL,
+    seq ( 2000000000, 10 ) NULL
+ ) ;
+
+CREATE TABLE transmission ( 
+    id_transmission TINYINT NOT NULL,
+    transmission_automatic TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_transmission )
+ ) ;
+
+CREATE TABLE vehicle_manufacturer ( 
+    id_manufacturer INT NOT NULL,
+    manufacturer TINYTEXT NOT NULL,
+CONSTRAINT PK_Table PRIMARY KEY ( id_manufacturer )
+ ) ;
+
+CREATE TABLE vehicle_model ( 
+    id_model INT NOT NULL,
+    id_manufacturer INT NOT NULL,
+    id_efficiency TINYINT NOT NULL,
+    model VARCHAR( 100 ) NOT NULL,
+CONSTRAINT pk PRIMARY KEY ( id_model ),
+FOREIGN KEY ( id_manufacturer ) REFERENCES vehicle_manufacturer( id_manufacturer )  ,
+FOREIGN KEY ( id_efficiency ) REFERENCES vehicle_mpg_efficiency_class( id_efficiency )  
+ ) ;
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_manufacturer );
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_efficiency );
+
+CREATE TABLE vehicle_mpg_efficiency_class ( 
+    id_efficiency TINYINT NOT NULL,
+    mpg_efficiency_class TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_efficiency )
+ ) ;
+
+
+]]> </string>
+		</query>
+		<query name="Sql_002" tab_index="2" >
+			<string> <![CDATA[CREATE TABLE accidents_or_damage ( 
+    id_accidents_damage TINYINT NOT NULL,
+    accidents_or_damage TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_accidents_damage )
+ ) ;
+
+CREATE TABLE color ( 
+    id_exterior_color TINYINT NOT NULL,
+    exterior_color TINYTEXT NOT NULL,
+CONSTRAINT pk_id_exterior_color PRIMARY KEY ( id_exterior_color )
+ ) ;
+
+CREATE TABLE driver_rating ( 
+    id_driver_rating TINYINT NOT NULL,
+    driver_rating TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_driver_rating )
+ ) ;
+
+CREATE TABLE fuel_type ( 
+    id_fuelType TINYINT NOT NULL,
+    fuel_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_fuelType )
+ ) ;
+
+CREATE TABLE mileage ( 
+    id_mileage TINYINT NOT NULL,
+    mileage_category TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_mileage )
+ ) ;
+
+CREATE TABLE one_owner ( 
+    id_one_owner TINYINT NOT NULL,
+    one_owner_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_one_owner )
+ ) ;
+
+CREATE TABLE paint_finish ( 
+    id_paint_finish TINYINT NOT NULL,
+    paint_finish TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_paint_finish )
+ ) ;
+
+CREATE TABLE personal_use_only ( 
+    id_personal_use_only TINYINT NOT NULL,
+    personal_use_only TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_personal_use_only )
+ ) ;
+
+CREATE TABLE prod_year ( 
+    id_prod_year TINYINT NOT NULL,
+    prod_year TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_prod_year )
+ ) ;
+
+CREATE TABLE sales_data ( 
+    id_vehicle INTEGER NOT NULL,
+    price INT NOT NULL,
+    amount_sold TINYINT NOT NULL,
+    id_model INT NOT NULL,
+    id_accidents TINYINT NOT NULL,
+    id_one_owner TINYINT NOT NULL,
+    id_personal_use TINYINT NOT NULL,
+    id_color TINYINT NOT NULL,
+    id_paintfinish TINYINT NOT NULL,
+    id_fuel_type TINYINT NOT NULL,
+    id_mileage TINYINT NOT NULL,
+    id_prod_year TINYINT NOT NULL,
+    id_trans_auto TINYINT NOT NULL,
+    id_driver_rating TINYINT NOT NULL,
+CONSTRAINT pk_salesdata PRIMARY KEY ( id_vehicle ),
+FOREIGN KEY ( id_model ) REFERENCES vehicle_model( id_model )  ,
+FOREIGN KEY ( id_accidents ) REFERENCES accidents_or_damage( id_accidents_damage )  ,
+FOREIGN KEY ( id_one_owner ) REFERENCES one_owner( id_one_owner )  ,
+FOREIGN KEY ( id_personal_use ) REFERENCES personal_use_only( id_personal_use_only )  ,
+FOREIGN KEY ( id_color ) REFERENCES color( id_exterior_color )  ,
+FOREIGN KEY ( id_paintfinish ) REFERENCES paint_finish( id_paint_finish )  ,
+FOREIGN KEY ( id_mileage ) REFERENCES mileage( id_mileage )  ,
+FOREIGN KEY ( id_prod_year ) REFERENCES prod_year( id_prod_year )  ,
+FOREIGN KEY ( id_trans_auto ) REFERENCES transmission( id_transmission )  ,
+FOREIGN KEY ( id_fuel_type ) REFERENCES fuel_type( id_fuelType )  ,
+FOREIGN KEY ( id_driver_rating ) REFERENCES driver_rating( id_driver_rating )  
+ ) ;
+
+CREATE INDEX idx_salesdata ON sales_data ( id_model );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_accidents );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_one_owner );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_personal_use );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_color );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_paintfinish );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_fuel_type );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_mileage );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_prod_year );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_trans_auto );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_driver_rating );
+
+CREATE TABLE sqlite_sequence ( 
+    name ( 2000000000, 10 ) NULL,
+    seq ( 2000000000, 10 ) NULL
+ ) ;
+
+CREATE TABLE transmission ( 
+    id_transmission TINYINT NOT NULL,
+    transmission_automatic TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_transmission )
+ ) ;
+
+CREATE TABLE vehicle_manufacturer ( 
+    id_manufacturer INT NOT NULL,
+    manufacturer TINYTEXT NOT NULL,
+CONSTRAINT PK_Table PRIMARY KEY ( id_manufacturer )
+ ) ;
+
+CREATE TABLE vehicle_model ( 
+    id_model INT NOT NULL,
+    id_manufacturer INT NOT NULL,
+    id_efficiency TINYINT NOT NULL,
+    model VARCHAR( 100 ) NOT NULL,
+CONSTRAINT pk PRIMARY KEY ( id_model ),
+FOREIGN KEY ( id_manufacturer ) REFERENCES vehicle_manufacturer( id_manufacturer )  ,
+FOREIGN KEY ( id_efficiency ) REFERENCES vehicle_mpg_efficiency_class( id_efficiency )  
+ ) ;
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_manufacturer );
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_efficiency );
+
+CREATE TABLE vehicle_mpg_efficiency_class ( 
+    id_efficiency TINYINT NOT NULL,
+    mpg_efficiency_class TINYTEXT NOT NULL,
+CONSTRAINT PK_Table_1 PRIMARY KEY ( id_efficiency )
+ ) ;
+
+]]> </string>
+		</query>
+		<query name="Sql_003" tab_index="3" >
+			<string> <![CDATA[CREATE TABLE accidents_or_damage ( 
+    id_accidents_damage TINYINT NOT NULL,
+    accidents_or_damage TINYTEXT NOT NULL,
+CONSTRAINT PK_accidents_or_damage PRIMARY KEY ( id_accidents_damage )
+ ) ;
+
+CREATE TABLE color ( 
+    id_exterior_color TINYINT NOT NULL,
+    exterior_color TINYTEXT NOT NULL,
+CONSTRAINT pk_id_exterior_color PRIMARY KEY ( id_exterior_color )
+ ) ;
+
+CREATE TABLE driver_rating ( 
+    id_driver_rating TINYINT NOT NULL,
+    driver_rating TINYTEXT NOT NULL,
+CONSTRAINT PK_driver_rating PRIMARY KEY ( id_driver_rating )
+ ) ;
+
+CREATE TABLE fuel_type ( 
+    id_fuelType TINYINT NOT NULL,
+    fuel_category TINYTEXT NOT NULL,
+CONSTRAINT PK_fuel_type PRIMARY KEY ( id_fuelType )
+ ) ;
+
+CREATE TABLE mileage ( 
+    id_mileage TINYINT NOT NULL,
+    mileage_category TINYTEXT NOT NULL,
+CONSTRAINT PK_mileage PRIMARY KEY ( id_mileage )
+ ) ;
+
+CREATE TABLE one_owner ( 
+    id_one_owner TINYINT NOT NULL,
+    one_owner_only TINYTEXT NOT NULL,
+CONSTRAINT PK_one_owner PRIMARY KEY ( id_one_owner )
+ ) ;
+
+CREATE TABLE paint_finish ( 
+    id_paint_finish TINYINT NOT NULL,
+    paint_finish TINYTEXT NOT NULL,
+CONSTRAINT PK_paint_finish PRIMARY KEY ( id_paint_finish )
+ ) ;
+
+CREATE TABLE personal_use_only ( 
+    id_personal_use_only TINYINT NOT NULL,
+    personal_use_only TINYTEXT NOT NULL,
+CONSTRAINT PK_personal_use_only PRIMARY KEY ( id_personal_use_only )
+ ) ;
+
+CREATE TABLE prod_year ( 
+    id_prod_year TINYINT NOT NULL,
+    prod_year TINYTEXT NOT NULL,
+CONSTRAINT PK_prod_year PRIMARY KEY ( id_prod_year )
+ ) ;
+
+CREATE TABLE sales_data ( 
+    id_vehicle INTEGER NOT NULL,
+    price INT NOT NULL,
+    amount_sold TINYINT NOT NULL,
+    id_model INT NOT NULL,
+    id_accidents TINYINT NOT NULL,
+    id_one_owner TINYINT NOT NULL,
+    id_personal_use TINYINT NOT NULL,
+    id_color TINYINT NOT NULL,
+    id_paintfinish TINYINT NOT NULL,
+    id_fuel_type TINYINT NOT NULL,
+    id_mileage TINYINT NOT NULL,
+    id_prod_year TINYINT NOT NULL,
+    id_trans_auto TINYINT NOT NULL,
+    id_driver_rating TINYINT NOT NULL,
+CONSTRAINT pk_sales_data PRIMARY KEY ( id_vehicle ),
+FOREIGN KEY ( id_model ) REFERENCES vehicle_model( id_model )  ,
+FOREIGN KEY ( id_accidents ) REFERENCES accidents_or_damage( id_accidents_damage )  ,
+FOREIGN KEY ( id_one_owner ) REFERENCES one_owner( id_one_owner )  ,
+FOREIGN KEY ( id_personal_use ) REFERENCES personal_use_only( id_personal_use_only )  ,
+FOREIGN KEY ( id_color ) REFERENCES color( id_exterior_color )  ,
+FOREIGN KEY ( id_paintfinish ) REFERENCES paint_finish( id_paint_finish )  ,
+FOREIGN KEY ( id_mileage ) REFERENCES mileage( id_mileage )  ,
+FOREIGN KEY ( id_prod_year ) REFERENCES prod_year( id_prod_year )  ,
+FOREIGN KEY ( id_trans_auto ) REFERENCES transmission( id_transmission )  ,
+FOREIGN KEY ( id_fuel_type ) REFERENCES fuel_type( id_fuelType )  ,
+FOREIGN KEY ( id_driver_rating ) REFERENCES driver_rating( id_driver_rating )  
+ ) ;
+
+CREATE INDEX idx_salesdata ON sales_data ( id_model );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_accidents );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_one_owner );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_personal_use );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_color );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_paintfinish );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_fuel_type );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_mileage );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_prod_year );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_trans_auto );
+
+CREATE INDEX idx_salesdata ON sales_data ( id_driver_rating );
+
+CREATE TABLE sqlite_sequence ( 
+    name ( 2000000000, 10 ) NULL,
+    seq ( 2000000000, 10 ) NULL
+ ) ;
+
+CREATE TABLE transmission ( 
+    id_transmission TINYINT NOT NULL,
+    transmission_automatic TINYTEXT NOT NULL,
+CONSTRAINT PK_transmission PRIMARY KEY ( id_transmission )
+ ) ;
+
+CREATE TABLE vehicle_manufacturer ( 
+    id_manufacturer INT NOT NULL,
+    manufacturer TINYTEXT NOT NULL,
+CONSTRAINT PK_vehicle_manufacturer PRIMARY KEY ( id_manufacturer )
+ ) ;
+
+CREATE TABLE vehicle_model ( 
+    id_model INT NOT NULL,
+    id_manufacturer INT NOT NULL,
+    id_efficiency TINYINT NOT NULL,
+    model VARCHAR( 100 ) NOT NULL,
+CONSTRAINT PK_vehicle_model PRIMARY KEY ( id_model ),
+FOREIGN KEY ( id_manufacturer ) REFERENCES vehicle_manufacturer( id_manufacturer )  ,
+FOREIGN KEY ( id_efficiency ) REFERENCES vehicle_mpg_efficiency_class( id_efficiency )  
+ ) ;
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_manufacturer );
+
+CREATE INDEX idx_vehicle_model ON vehicle_model ( id_efficiency );
+
+CREATE TABLE vehicle_mpg_efficiency_class ( 
+    id_efficiency TINYINT NOT NULL,
+    mpg_efficiency_class TINYTEXT NOT NULL,
+CONSTRAINT PK_vehicle_mpg_efficiency_class PRIMARY KEY ( id_efficiency )
+ ) ;
+
+]]> </string>
+		</query>
+		<query name="Sql_004" tab_index="4" >
+			<string> <![CDATA[CREATE TABLE accidents_or_damage ( 
+    id_accidents_damage TINYINT NOT NULL,
+    accidents_or_damage TINYTEXT NOT NULL,
+CONSTRAINT PK_accidents_or_damage PRIMARY KEY ( id_accidents_damage )
+ ) ;
+
+CREATE TABLE color ( 
+    id_exterior_color TINYINT NOT NULL,
+    exterior_color TINYTEXT NOT NULL,
+CONSTRAINT pk_id_exterior_color PRIMARY KEY ( id_exterior_color )
+ ) ;
+
+CREATE TABLE driver_rating ( 
+    id_driver_rating TINYINT NOT NULL,
+    driver_rating TINYTEXT NOT NULL,
+CONSTRAINT PK_driver_rating PRIMARY KEY ( id_driver_rating )
+ ) ;
+
+CREATE TABLE fuel_type ( 
+    id_fuelType TINYINT NOT NULL,
+    fuel_category TINYTEXT NOT NULL,
+CONSTRAINT PK_fuel_type PRIMARY KEY ( id_fuelType )
+ ) ;
+
+CREATE TABLE mileage ( 
+    id_mileage TINYINT NOT NULL,
+    mileage_category TINYTEXT NOT NULL,
+CONSTRAINT PK_mileage PRIMARY KEY ( id_mileage )
+ ) ;
+
+CREATE TABLE one_owner ( 
+    id_one_owner TINYINT NOT NULL,
+    one_owner_only TINYTEXT NOT NULL,
+CONSTRAINT PK_one_owner PRIMARY KEY ( id_one_owner )
+ ) ;
+
+CREATE TABLE paint_finish ( 
+    id_paint_finish TINYINT NOT NULL,
+    paint_finish TINYTEXT NOT NULL,
+CONSTRAINT PK_paint_finish PRIMARY KEY ( id_paint_finish )
+ ) ;
+
+CREATE TABLE personal_use_only ( 
+    id_personal_use_only TINYINT NOT NULL,
+    personal_use_only TINYTEXT NOT NULL,
+CONSTRAINT PK_personal_use_only PRIMARY KEY ( id_personal_use_only )
+ ) ;
+
+CREATE TABLE prod_year ( 
+    id_prod_year TINYINT NOT NULL,
+    prod_year TINYTEXT NOT NULL,
+CONSTRAINT PK_prod_year PRIMARY KEY ( id_prod_year )
+ ) ;
+
+CREATE TABLE sales_data ( 
+    id_vehicle INTEGER NOT NULL,
+    price INT NOT NULL,
+    amount_sold TINYINT NOT NULL,
+    id_model INT NOT NULL,
+    id_accidents TINYINT NOT NULL,
+    id_one_owner TINYINT NOT NULL,
+    id_personal_use TINYINT NOT NULL,
+    id_color TINYINT NOT NULL,
+    id_paintfinish TINYINT NOT NULL,
+    id_fuel_type TINYINT NOT NULL,
+    id_mileage TINYINT NOT NULL,
+    id_prod_year TINYINT NOT NULL,
+    id_trans_auto TINYINT NOT NULL,
+    id_driver_rating TINYINT NOT NULL,
+CONSTRAINT pk_sales_data PRIMARY KEY ( id_vehicle ),
+FOREIGN KEY ( id_model ) REFERENCES vehicle_model( id_model )  ,
+FOREIGN KEY ( id_accidents ) REFERENCES accidents_or_damage( id_accidents_damage )  ,
+FOREIGN KEY ( id_one_owner ) REFERENCES one_owner( id_one_owner )  ,
+FOREIGN KEY ( id_personal_use ) REFERENCES personal_use_only( id_personal_use_only )  ,
+FOREIGN KEY ( id_color ) REFERENCES color( id_exterior_color )  ,
+FOREIGN KEY ( id_paintfinish ) REFERENCES paint_finish( id_paint_finish )  ,
+FOREIGN KEY ( id_mileage ) REFERENCES mileage( id_mileage )  ,
+FOREIGN KEY ( id_prod_year ) REFERENCES prod_year( id_prod_year )  ,
+FOREIGN KEY ( id_trans_auto ) REFERENCES transmission( id_transmission )  ,
+FOREIGN KEY ( id_fuel_type ) REFERENCES fuel_type( id_fuelType )  ,
+FOREIGN KEY ( id_driver_rating ) REFERENCES driver_rating( id_driver_rating )  
+ ) ;
+
+CREATE INDEX idx_sales_model ON sales_data ( id_model );
+
+CREATE INDEX idx_sales_accident ON sales_data ( id_accidents );
+
+CREATE INDEX idx_sales_ownership ON sales_data ( id_one_owner );
+
+CREATE INDEX idx_sales_personal_usage ON sales_data ( id_personal_use );
+
+CREATE INDEX idx_sales_color ON sales_data ( id_color );
+
+CREATE INDEX idx_sales_paint_finish ON sales_data ( id_paintfinish );
+
+CREATE INDEX idx_sales_fuel_type ON sales_data ( id_fuel_type );
+
+CREATE INDEX idx_sales_mileage ON sales_data ( id_mileage );
+
+CREATE INDEX idx_sales_prod_year ON sales_data ( id_prod_year );
+
+CREATE INDEX idx_sales_transmission ON sales_data ( id_trans_auto );
+
+CREATE INDEX idx_sales_driver_rating ON sales_data ( id_driver_rating );
+
+CREATE TABLE sqlite_sequence ( 
+    name ( 2000000000, 10 ) NULL,
+    seq ( 2000000000, 10 ) NULL
+ ) ;
+
+CREATE TABLE transmission ( 
+    id_transmission TINYINT NOT NULL,
+    transmission_automatic TINYTEXT NOT NULL,
+CONSTRAINT PK_transmission PRIMARY KEY ( id_transmission )
+ ) ;
+
+CREATE TABLE vehicle_manufacturer ( 
+    id_manufacturer INT NOT NULL,
+    manufacturer TINYTEXT NOT NULL,
+CONSTRAINT PK_vehicle_manufacturer PRIMARY KEY ( id_manufacturer )
+ ) ;
+
+CREATE TABLE vehicle_model ( 
+    id_model INT NOT NULL,
+    id_manufacturer INT NOT NULL,
+    id_efficiency TINYINT NOT NULL,
+    model VARCHAR( 100 ) NOT NULL,
+CONSTRAINT PK_vehicle_model PRIMARY KEY ( id_model ),
+FOREIGN KEY ( id_manufacturer ) REFERENCES vehicle_manufacturer( id_manufacturer )  ,
+FOREIGN KEY ( id_efficiency ) REFERENCES vehicle_mpg_efficiency_class( id_efficiency )  
+ ) ;
+
+CREATE INDEX idx_model_manufacturer ON vehicle_model ( id_manufacturer );
+
+CREATE INDEX idx_model_efficiency ON vehicle_model ( id_efficiency );
+
+CREATE TABLE vehicle_mpg_efficiency_class ( 
+    id_efficiency TINYINT NOT NULL,
+    mpg_efficiency_class TINYTEXT NOT NULL,
+CONSTRAINT PK_vehicle_mpg_efficiency_class PRIMARY KEY ( id_efficiency )
+ ) ;
+
+]]> </string>
+		</query>
 	</layout>
 </project>

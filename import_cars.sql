@@ -33,14 +33,5 @@ IGNORE 1 ROWS;
 -- Create primary key
 ALTER TABLE cars ADD car_id int NOT NULL AUTO_INCREMENT primary key FIRST;
 
--- Drop column
-ALTER TABLE cars DROP COLUMN new_column;
-
--- copy table from existing table
-CREATE TABLE cars_clean
-AS SELECT
-  *
-FROM cars;
-
 -- #####################
 
