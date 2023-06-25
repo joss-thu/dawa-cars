@@ -23,6 +23,7 @@ CREATE TABLE `cars` (
 );
 
 -- import cars
+-- Prior to doing this, the downloaded data file was opened in libre office calc and examined for the nature of data. Commas within the data was replaced with '&', so that the CSV structure after export is not broken. The file was then exported in .csv format.
 LOAD DATA INFILE 'S:\\OneDrive\\THU\\00.Semester4\\DAWA\\Project\\CarsDataset\\cars.csv' 
 INTO TABLE cars 
 FIELDS TERMINATED BY ',' 

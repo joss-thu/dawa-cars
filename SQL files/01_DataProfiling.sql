@@ -1,3 +1,4 @@
+-- Data profiling to understand the data
 -- check for null values in manufacturer 
 
 SELECT DISTINCT (manufacturer) FROM cars.cars
